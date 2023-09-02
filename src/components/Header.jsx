@@ -7,6 +7,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 class Header extends React.Component {
+  constructor() {
+    super();
+  }
+  
   render() {
     return (
       <>
@@ -36,7 +40,13 @@ class Header extends React.Component {
                   Link
                 </Nav.Link>
               </Nav>
-              <Button className='me-2' variant="primary">Add Job</Button>
+              <Button
+                className="me-2"
+                variant="primary"
+                onClick={() => this.props.toggleModal()}
+              >
+                Add Job
+              </Button>
               <Form className="d-flex">
                 <Form.Control
                   type="search"
