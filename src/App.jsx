@@ -1,14 +1,25 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
+import React from 'react';
 
-function App() {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      
+    }
+  }
 
-  return (
-    <>
-    <Header />
-    </>
-  )
+  toggleModal
+
+  render() {
+    return (
+      <>
+      <Header />
+      </>
+    )
+  }
 }
 
 export default App

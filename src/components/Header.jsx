@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
 
 class Header extends React.Component {
   render() {
@@ -37,6 +36,7 @@ class Header extends React.Component {
                   Link
                 </Nav.Link>
               </Nav>
+              <Button className='me-2' variant="primary">Add Job</Button>
               <Form className="d-flex">
                 <Form.Control
                   type="search"
