@@ -54,7 +54,7 @@ class AddJobModal extends React.Component {
               </Form.Group>
               <Form.Group as={Col} controlId="datePicker">
                 <Form.Label>If applied, when?</Form.Label>
-                <Form.Control type="date" />
+                <Form.Control type="text" placeholder="MM/DD/YYYY" />
               </Form.Group>
             </Row>
 

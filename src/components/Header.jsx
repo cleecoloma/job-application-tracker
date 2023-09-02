@@ -10,13 +10,13 @@ class Header extends React.Component {
   constructor() {
     super();
   }
-  
+
   render() {
     return (
       <>
         <Navbar fixed="top" expand="lg" className="bg-body-tertiary">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar</Navbar.Brand>
+            <Navbar.Brand href="#">Job Application Tracker</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
