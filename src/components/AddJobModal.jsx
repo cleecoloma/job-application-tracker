@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-
+import Row from 'react-bootstrap/Row';
 class AddJobModal extends React.Component {
   constructor() {
     super();
@@ -42,10 +43,25 @@ class AddJobModal extends React.Component {
               <Form.Label>Posting Link</Form.Label>
               <Form.Control type="text" placeholder="Enter Posting Link" />
             </Form.Group>
-            {/* 
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group> */}
+
+            <Row className="mb-3">
+              <Form.Group as={Col}>
+                <Form.Label>Applied?</Form.Label>
+                <Form.Select>
+                  <option>No</option>
+                  <option>Yes</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group as={Col} controlId="datePicker">
+                <Form.Label>If applied, when?</Form.Label>
+                <Form.Control type="date" />
+              </Form.Group>
+            </Row>
+
+            <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Label>Notes</Form.Label>
+              <Form.Control as="textarea" rows={3} />
+            </Form.Group>
 
             <Button variant="primary" type="submit">
               Submit
