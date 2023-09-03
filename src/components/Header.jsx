@@ -26,7 +26,7 @@ class Header extends React.Component {
               >
                 <Nav.Link href="#action1">Home</Nav.Link>
                 <Nav.Link href="#action2">Link</Nav.Link>
-                <NavDropdown title="Link" id="navbarScrollingDropdown">
+                {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
                     Another action
@@ -38,7 +38,7 @@ class Header extends React.Component {
                 </NavDropdown>
                 <Nav.Link href="#" disabled>
                   Link
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
               <Button
                 className="me-2"
@@ -47,15 +47,6 @@ class Header extends React.Component {
               >
                 Add Job
               </Button>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form>
             </Navbar.Collapse>
           </Container>
         </Navbar>
