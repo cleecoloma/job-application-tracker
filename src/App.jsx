@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import React from 'react';
 import AddJobModal from './components/AddJobModal';
+import Search from './components/Search';
 
 class App extends React.Component {
   constructor() {
@@ -20,6 +21,7 @@ class App extends React.Component {
     return (
       <>
         <Header toggleModal={this.toggleModal} />
+        <Search />
         <AddJobModal
           modalPreview={this.state.modalPreview}
           toggleModal={this.toggleModal}
