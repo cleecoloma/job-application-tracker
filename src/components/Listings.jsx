@@ -15,7 +15,6 @@ class Listings extends React.Component {
     return (
       <>
         <div style={listingsStyle}>
-          ssdfs
         </div>
       </>
     );
