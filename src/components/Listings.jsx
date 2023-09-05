@@ -1,4 +1,5 @@
 import React from 'react';
+import JobCard from './JobCard';
 
 class Listings extends React.Component {
   constructor() {
@@ -15,7 +16,7 @@ class Listings extends React.Component {
     return (
       <>
         <div style={listingsStyle}>
-          ssdfs
+          <JobCard />
         </div>
       </>
     );
