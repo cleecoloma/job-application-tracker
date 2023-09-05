@@ -7,9 +7,18 @@ class Listings extends React.Component {
   }
 
   render() {
+    const listingStyle = {
+      position: 'fixed',
+      top: '9rem',
+      left: '50%', // To horizontally center the search bar
+      transform: 'translateX(-50%)', // To center it horizontally
+    };
     return (
       <>
-        <JobCard />
+        <div style={listingStyle}>
+          <JobCard />
+          <JobCard />
+        </div>
       </>
     );
   }

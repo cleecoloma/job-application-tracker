@@ -67,9 +67,6 @@ class AddJobModal extends React.Component {
               Submit
             </Button>
           </Form>
-          {/* <Modal.Footer>
-            <Button onClick={() => this.props.toggleModal()}>Close</Button>
-          </Modal.Footer> */}
         </Modal>
       </>
     );

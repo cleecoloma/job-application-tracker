@@ -11,6 +11,15 @@ class App extends React.Component {
     super();
     this.state = {
       modalPreview: false,
+      job: {
+        company: null,
+        location: null,
+        title: null,
+        postingLink: null,
+        appliedStatus: false,
+        appliedDate: null,
+        notes: null,
+      },
     };
   }
 
