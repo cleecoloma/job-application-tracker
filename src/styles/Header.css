@@ -1,0 +1,21 @@
+.button {
+  margin-right: 2rem;
+  width: 10rem;
+}
+
+#profile-button, #contact-button {
+  width: 6rem;
+  margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  text-decoration-color: lightblue;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 50%;
+  border-radius: 8px;
+}
+
+#profile-button:hover, #contact-button:hover {
+  background-color: lightblue;
+}
