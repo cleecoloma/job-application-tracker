@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
+import '../styles/JobCard.css';
 
 class JobCard extends React.Component {
   constructor() {
@@ -10,15 +12,38 @@ class JobCard extends React.Component {
   render() {
     return (
       <>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+        <Card className="card" style={{ width: '20rem' }}>
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Card.Img
+              // variant="top"
+              className="card-img"
+              src="https://placehold.co/10x10"
+            />
+            <div className="card-text">
+              <div className="card-title">
+                <Card.Text>
+                  <h3>Google</h3>
+                </Card.Text>
+                <Card.Text>Seattle, WA</Card.Text>
+              </div>
+              <hr />
+              <Card.Text>Software Engineer</Card.Text>
+              <Card.Text>Applied on MM/DD/YYYY</Card.Text>
+              <Accordion className="accordion">
+                <Accordion.Item className="accordion" eventKey="1">
+                  <Accordion.Header>Notes</Accordion.Header>
+                  <Accordion.Body>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </div>
+            <Button className="card-button" variant="primary">
+              Posting Link
+            </Button>
           </Card.Body>
         </Card>
       </>
