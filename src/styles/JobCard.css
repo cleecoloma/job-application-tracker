@@ -27,8 +27,12 @@
   justify-content: center;
   margin: 0 auto;
   background-color: rgb(175, 225, 190);
-  padding: 4px 0;
+  padding: 2px 0 8px;
   border-radius: 1rem;
+}
+
+.accordion {
+  background-color: rgb(175, 225, 190);
 }
 
 .card-button {
