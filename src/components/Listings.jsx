@@ -1,5 +1,6 @@
 import React from 'react';
 import JobCard from './JobCard';
+import '../styles/Listings.css'
 
 class Listings extends React.Component {
   constructor() {
@@ -7,15 +8,13 @@ class Listings extends React.Component {
   }
 
   render() {
-    const listingStyle = {
-      position: 'fixed',
-      top: '9rem',
-      left: '50%', // To horizontally center the search bar
-      transform: 'translateX(-50%)', // To center it horizontally
-    };
     return (
       <>
-        <div style={listingStyle}>
+        <div className="listings">
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
           <JobCard />
         </div>
       </>

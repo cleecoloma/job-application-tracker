@@ -1,0 +1,11 @@
+.listings {
+  display: flex;
+  position: fixed;
+  top: 9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+}

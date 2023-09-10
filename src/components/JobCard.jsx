@@ -11,7 +11,7 @@ class JobCard extends React.Component {
   render() {
     return (
       <>
-        <Card className='card' style={{ width: '25rem' }}>
+        <Card className="card" style={{ width: '20rem' }}>
           <Card.Body>
             <Card.Img
               // variant="top"
@@ -19,8 +19,10 @@ class JobCard extends React.Component {
               src="https://placehold.co/10x10"
             />
             <div className="card-text">
-              <div className='card-title'>
-                <Card.Text>Google</Card.Text>
+              <div className="card-title">
+                <Card.Text>
+                  <h3>Google</h3>
+                </Card.Text>
                 <Card.Text>Seattle, WA</Card.Text>
               </div>
               <hr />
@@ -28,7 +30,9 @@ class JobCard extends React.Component {
               <Card.Text>Applied on MM/DD/YYYY</Card.Text>
               <Card.Text>Notes</Card.Text>
             </div>
-              <Button className='card-button' variant="primary">Posting Link</Button>
+            <Button className="card-button" variant="primary">
+              Posting Link
+            </Button>
           </Card.Body>
         </Card>
       </>
