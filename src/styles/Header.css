@@ -4,7 +4,7 @@
   color: rgb(22, 22, 22);
   font-family: 'Thasadith', sans-serif;
   padding: 6px 12px;
-  border: 2px solid rgb(22, 22, 22);
+  border: thin solid rgb(22, 22, 22);
   font-weight: 700;
   border-radius: 6px;
 }
@@ -12,6 +12,7 @@
 .button {
   margin-right: 2rem;
   width: 10rem;
+  letter-spacing: 2px;
 }
 
 #profile-button {
