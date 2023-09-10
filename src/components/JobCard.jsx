@@ -11,24 +11,24 @@ class JobCard extends React.Component {
   render() {
     return (
       <>
-        <Card style={{ width: '25rem' }}>
+        <Card className='card' style={{ width: '25rem' }}>
           <Card.Body>
             <Card.Img
-              variant="top"
+              // variant="top"
               className="card-img"
               src="https://placehold.co/10x10"
             />
             <div className="card-text">
               <div className='card-title'>
-                <Card.Text className="d-inline">Google</Card.Text>
+                <Card.Text>Google</Card.Text>
                 <Card.Text>Seattle, WA</Card.Text>
               </div>
               <hr />
               <Card.Text>Software Engineer</Card.Text>
               <Card.Text>Applied on MM/DD/YYYY</Card.Text>
               <Card.Text>Notes</Card.Text>
-              <Button variant="primary">Posting Link</Button>
             </div>
+              <Button className='card-button' variant="primary">Posting Link</Button>
           </Card.Body>
         </Card>
       </>

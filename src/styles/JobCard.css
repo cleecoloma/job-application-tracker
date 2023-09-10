@@ -1,14 +1,23 @@
+.card {
+  border-radius: 1rem;
+  background-color: rgb(236, 243, 244);
+  border-style: none;
+}
+
 .card-img {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  width: 60px;
+  width: 4rem;
+  position: relative;
+  top: 1rem;
 }
 
 .card-title {
   display: flex;
   margin-top: 4px;
   margin-bottom: 0;
+  padding: 2rem 0 0;
 }
 
 .card-text {
@@ -16,5 +25,15 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  background-color: rgb(135, 200, 158);
+  padding: 4px 0;
+  border-radius: 1rem;
+}
+
+.card-button {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto 0;
+  width: 8rem;
 }
 
