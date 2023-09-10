@@ -17,7 +17,6 @@ class Listings extends React.Component {
       <>
         <div style={listingStyle}>
           <JobCard />
-          <JobCard />
         </div>
       </>
     );

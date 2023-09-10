@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import '../styles/JobCard.css';
 
 class JobCard extends React.Component {
   constructor() {
@@ -10,15 +11,24 @@ class JobCard extends React.Component {
   render() {
     return (
       <>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+        <Card style={{ width: '25rem' }}>
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Card.Img
+              variant="top"
+              className="card-img"
+              src="https://placehold.co/10x10"
+            />
+            <div className="card-text">
+              <div className='card-title'>
+                <Card.Text className="d-inline">Google</Card.Text>
+                <Card.Text>Seattle, WA</Card.Text>
+              </div>
+              <hr />
+              <Card.Text>Software Engineer</Card.Text>
+              <Card.Text>Applied on MM/DD/YYYY</Card.Text>
+              <Card.Text>Notes</Card.Text>
+              <Button variant="primary">Posting Link</Button>
+            </div>
           </Card.Body>
         </Card>
       </>
