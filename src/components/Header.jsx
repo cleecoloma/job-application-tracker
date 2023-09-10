@@ -15,15 +15,16 @@ class Header extends React.Component {
       <>
         <Navbar fixed="top" expand="lg" className="bg-body-tertiary px-5">
           <Container fluid>
-            <Navbar.Brand href="#">Job Application Tracker</Navbar.Brand>
+            <Navbar.Brand href="#" id="brand-name">
+              Job Application Tracker
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
                 className="me-auto my-2 my-lg-0"
                 style={{ maxHeight: '100px' }}
                 navbarScroll
-              >
-              </Nav>
+              ></Nav>
               <div className="d-flex">
                 <Button
                   className="button"
@@ -32,16 +33,10 @@ class Header extends React.Component {
                 >
                   + Add Job
                 </Button>
-                <Nav.Link
-                  id="profile-button"
-                  href="#action1"
-                >
+                <Nav.Link id="profile-button" href="#action1">
                   Profile
                 </Nav.Link>
-                <Nav.Link
-                  id="profile-button"
-                  href="#action2"
-                >
+                <Nav.Link id="contact-button" href="#action2">
                   Contact
                 </Nav.Link>
               </div>

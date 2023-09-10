@@ -1,11 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@400;700&display=swap');
+
+#brand-name {
+  color: rgb(22, 22, 22);
+  font-family: 'Thasadith', sans-serif;
+  padding: 6px 12px;
+  border: 2px solid rgb(22, 22, 22);
+  font-weight: 700;
+  border-radius: 6px;
+}
+
 .button {
   margin-right: 2rem;
   width: 10rem;
 }
 
-#profile-button, #contact-button {
-  width: 6rem;
+#profile-button {
   margin-right: 2rem;
+}
+
+#profile-button,
+#contact-button {
+  width: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +31,7 @@
   border-radius: 8px;
 }
 
-#profile-button:hover, #contact-button:hover {
+#profile-button:hover,
+#contact-button:hover {
   background-color: lightblue;
 }
