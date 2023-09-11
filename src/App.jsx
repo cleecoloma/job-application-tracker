@@ -53,10 +53,22 @@ class App extends React.Component {
     this.setState({ modalPreview: !this.state.modalPreview });
   };
 
-  // GET
+  // READ
   handleGetJobs = async () => {
-    const response = this.sendRequest('GET', this.state.token)
+    const response = this.sendRequest('GET', this.state.token);
+    this.setState({
+      jobs: response.data
+    })
   };
+
+  // CREATE
+  handlePostJobs = async (job) => {
+    const jobObject = { newJob: job }
+    const response = this.sendRequest('POST', this.state.token, null, jobObject);
+    this.setState({
+      jobs: [...this.state.jobs, response.data]
+    });
+  }
 
   render() {
     return (
