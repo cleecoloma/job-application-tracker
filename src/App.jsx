@@ -85,6 +85,18 @@ class App extends React.Component {
     this.handleGetJobs();
   }
 
+  // DELETE
+  handleDeleteJobs = async (id) => {
+    const response = this.sendRequest('DELETE', this.state.token, id);
+    const updatedJobs = this.state.jobs.filter((job) => {
+      recipe._id !== id
+    });
+    this.setState({
+      jobs: updatedJobs,
+    });
+    this.handleGetJobs();
+  }
+
   render() {
     return (
       <>
