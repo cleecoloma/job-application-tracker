@@ -28,7 +28,7 @@ class JobCard extends React.Component {
               </div>
               <hr />
               <Card.Text>Software Engineer</Card.Text>
-              <Card.Text>Applied on MM/DD/YYYY</Card.Text>
+              <Card.Text>Added on MM/DD/YYYY</Card.Text>
               <Accordion className="accordion">
                 <Accordion.Item className="accordion" eventKey="1">
                   <Accordion.Header>Notes</Accordion.Header>
