@@ -70,6 +70,21 @@ class App extends React.Component {
     });
   }
 
+  // UPDATE
+  handlePutJobs = async (id, updatedJob) => {
+    const response = this.sendRequest('PUT', this.state.token, id, updatedJob);
+    const updatedJobs = this.state.jobs.map((job) => {
+      if (job.id === id) {
+        return response.data;
+      }
+      return job;
+    })
+    this.setState({
+      jobs: updatedJobs,
+    });
+    this.handleGetJobs();
+  }
+
   render() {
     return (
       <>
