@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../styles/Header.css';
+import AuthButtons from '../../auth/AuthButton';
 
 class Header extends React.Component {
   constructor() {
@@ -33,12 +34,13 @@ class Header extends React.Component {
                 >
                   + Add Job
                 </Button>
-                <Nav.Link id="profile-button" href="#action1">
+                <Nav.Link id="profile-button" to="/Profile">
                   Profile
                 </Nav.Link>
-                <Nav.Link id="contact-button" href="#action2">
+                <Nav.Link id="contact-button" to="/Contact">
                   Contact
                 </Nav.Link>
+                <AuthButtons />
               </div>
             </Navbar.Collapse>
           </Container>

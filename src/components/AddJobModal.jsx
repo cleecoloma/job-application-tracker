@@ -39,22 +39,38 @@ class AddJobModal extends React.Component {
           <Form className="m-3" onSubmit={this.handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Company</Form.Label>
-              <Form.Control type="text" placeholder="Enter Company Name" />
+              <Form.Control
+                type="text"
+                placeholder="Enter Company Name"
+                name="company"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Location</Form.Label>
-              <Form.Control type="text" placeholder="Enter Location" />
+              <Form.Control
+                type="text"
+                placeholder="Enter Location"
+                name="location"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Title</Form.Label>
-              <Form.Control type="text" placeholder="Enter Title" />
+              <Form.Control
+                type="text"
+                placeholder="Enter Title"
+                name="title"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Posting Link</Form.Label>
-              <Form.Control type="text" placeholder="Enter Posting Link" />
+              <Form.Control
+                type="text"
+                placeholder="Enter Posting Link"
+                name="postingLink"
+              />
             </Form.Group>
 
             <Row className="mb-3">
