@@ -10,6 +10,9 @@ const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 class Listings extends React.Component {
   constructor() {
     super();
+    this.state = {
+      token: null,
+    };
   }
 
   sendRequest = async (method, token, id, data) => {
@@ -37,9 +40,8 @@ class Listings extends React.Component {
   // READ
   handleGetJobs = async () => {
     const response = this.sendRequest('GET', this.state.token);
-    this.setState({
-      jobs: response.data,
-    });
+    const updatedJobs = (await response).data;
+    this.props.toggleJobs(updatedJobs);
   };
 
   // CREATE
@@ -51,36 +53,29 @@ class Listings extends React.Component {
       null,
       jobObject
     );
-    this.setState({
-      jobs: [...this.state.jobs, response.data],
-    });
-    console.log(jobs);
+    this.props.toggleJobs([...this.props.jobs, response.data]);
   };
 
   // UPDATE
   handleUpdateJobs = async (id, updatedJob) => {
     const response = this.sendRequest('PUT', this.state.token, id, updatedJob);
-    const updatedJobs = this.state.jobs.map((job) => {
+    const updatedJobs = this.props.jobs.map((job) => {
       if (job.id === id) {
         return response.data;
       }
       return job;
     });
-    this.setState({
-      jobs: updatedJobs,
-    });
+    this.props.toggleJobs(updatedJobs);
     this.handleGetJobs();
   };
 
   // DELETE
   handleDeleteJobs = async (id) => {
     const response = this.sendRequest('DELETE', this.state.token, id);
-    const updatedJobs = this.state.jobs.filter((job) => {
+    const updatedJobs = this.props.jobs.filter((job) => {
       recipe._id !== id;
     });
-    this.setState({
-      jobs: updatedJobs,
-    });
+    this.props.toggleJobs(updatedJobs);
     this.handleGetJobs();
   };
 
@@ -96,7 +91,7 @@ class Listings extends React.Component {
         </Button>
         <div className="listings">
           {this.props.jobs.length > 0
-            ? this.props.jobs.map(<JobCard jobs={this.props.jobs} />)
+            ? this.props.jobs.map(<JobCard key={id} jobs={this.props.jobs} />)
             : null}
         </div>
       </>

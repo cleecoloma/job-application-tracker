@@ -11,7 +11,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      token: null,
       modalPreview: false,
       newJob: null,
       jobs: [],
@@ -22,19 +21,20 @@ class App extends React.Component {
     this.setState({ modalPreview: !this.state.modalPreview });
   };
 
-  // handleNewJob = (job) => {
-  //   this.setState
-  // }
+  toggleJobs = (updatedJobs) => {
+    this.setState({ jobs: updatedJobs });
+  };
 
   render() {
     return (
       <>
-        <Header toggleModal={this.toggleModal} />
+        <Header />
         <Search />
         <Listings
           jobs={this.state.jobs}
           modalPreview={this.state.modalPreview}
           toggleModal={this.toggleModal}
+          toggleJobs={this.toggleJobs}
         />
         <AddJobModal handleNewJob={this.handleNewJob} />
       </>
