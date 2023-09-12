@@ -22,7 +22,7 @@ class JobCard extends React.Component {
             <div className="card-text">
               <div className="card-title">
                 <Card.Text>
-                  <h3>{this.props.jobs.company}</h3>
+                  <strong>{this.props.jobs.company}</strong>
                 </Card.Text>
                 <Card.Text>{this.props.jobs.location}</Card.Text>
               </div>

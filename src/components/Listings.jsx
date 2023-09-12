@@ -41,10 +41,14 @@ class Listings extends React.Component {
 
   // READ
   handleGetJobs = async () => {
-    const response = await this.sendRequest('GET', this.state.token);
+    // console.log('Sending get request')
+    const response = await this.sendRequest(
+      'GET', 
+      this.state.token);
     this.setState({
       jobs: response.data,
     });
+    // console.log('Got get request back')
   };
 
   // CREATE
@@ -99,7 +103,7 @@ class Listings extends React.Component {
   };
 
   render() {
-    console.log(this.state.jobs);
+    // console.log(this.state.token);
     return (
       <div className="listings">
         <Button
