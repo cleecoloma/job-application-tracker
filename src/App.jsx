@@ -102,7 +102,7 @@ class App extends React.Component {
       <>
         <Header toggleModal={this.toggleModal} />
         <Search />
-        <Listings />
+        <Listings jobs={this.state.jobs} />
         <AddJobModal
           modalPreview={this.state.modalPreview}
           toggleModal={this.toggleModal}

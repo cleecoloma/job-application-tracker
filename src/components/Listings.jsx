@@ -11,11 +11,7 @@ class Listings extends React.Component {
     return (
       <>
         <div className="listings">
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
+          {(this.props.jobs.length > 0) ? this.props.jobs.map(<JobCard jobs={this.props.jobs} />) : null}
         </div>
       </>
     );
