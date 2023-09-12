@@ -14,15 +14,6 @@ class App extends React.Component {
       token: null,
       modalPreview: false,
       jobs: [],
-      // job: {
-      //   company: null,
-      //   location: null,
-      //   title: null,
-      //   postingLink: null,
-      //   appliedStatus: false,
-      //   appliedDate: null,
-      //   notes: null,
-      // },
     };
   }
 
