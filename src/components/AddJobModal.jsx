@@ -13,7 +13,7 @@ class AddJobModal extends React.Component {
     e.preventDefault();
     let { company, location, title } = e.target;
     if (company && location && title) {
-      this.props.handleCreateJobs({
+      this.props.handleNewJob({
         company: company.value,
         location: location.value,
         title: title.value,

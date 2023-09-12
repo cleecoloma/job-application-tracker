@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -27,13 +26,6 @@ class Header extends React.Component {
                 navbarScroll
               ></Nav>
               <div className="d-flex">
-                <Button
-                  className="button"
-                  variant="primary"
-                  onClick={() => this.props.toggleModal()}
-                >
-                  + Add Job
-                </Button>
                 <Nav.Link id="profile-button" to="/Profile">
                   Profile
                 </Nav.Link>
