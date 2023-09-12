@@ -81,7 +81,7 @@ class Listings extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="listings">
         <Button
           className="button"
           variant="primary"
@@ -89,12 +89,10 @@ class Listings extends React.Component {
         >
           + Add Job
         </Button>
-        <div className="listings">
-          {this.props.jobs.length > 0
-            ? this.props.jobs.map(<JobCard key={id} jobs={this.props.jobs} />)
-            : null}
-        </div>
-      </>
+        {this.props.jobs.length > 0
+          ? this.props.jobs.map(<JobCard key={id} jobs={this.props.jobs} />)
+          : null}
+      </div>
     );
   }
 }

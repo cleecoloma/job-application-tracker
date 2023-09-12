@@ -36,7 +36,7 @@ class App extends React.Component {
           toggleModal={this.toggleModal}
           toggleJobs={this.toggleJobs}
         />
-        <AddJobModal handleNewJob={this.handleNewJob} />
+        <AddJobModal />
       </>
     );
   }
