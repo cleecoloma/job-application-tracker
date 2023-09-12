@@ -27,13 +27,8 @@ class JobCard extends React.Component {
                 <Card.Text>{this.props.jobs.location}</Card.Text>
               </div>
               <hr />
-<<<<<<< Updated upstream
-              <Card.Text>Software Engineer</Card.Text>
-              <Card.Text>Applied on MM/DD/YYYY</Card.Text>
-=======
               <Card.Text>{this.props.jobs.title}</Card.Text>
               <Card.Text>Added on MM/DD/YYYY</Card.Text>
->>>>>>> Stashed changes
               <Accordion className="accordion">
                 <Accordion.Item className="accordion" eventKey="1">
                   <Accordion.Header>Notes</Accordion.Header>
