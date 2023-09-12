@@ -6,6 +6,7 @@ import AddJobModal from './components/AddJobModal';
 import Search from './components/Search';
 import Listings from './components/Listings';
 import axios from 'axios';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class App extends React.Component {
   constructor() {
@@ -53,7 +54,7 @@ class App extends React.Component {
   };
 
   // CREATE
-  handlePostJobs = async (job) => {
+  handleCreateJobs = async (job) => {
     const jobObject = { newJob: job }
     const response = this.sendRequest('POST', this.state.token, null, jobObject);
     this.setState({
@@ -62,7 +63,7 @@ class App extends React.Component {
   }
 
   // UPDATE
-  handlePutJobs = async (id, updatedJob) => {
+  handleUpdateJobs = async (id, updatedJob) => {
     const response = this.sendRequest('PUT', this.state.token, id, updatedJob);
     const updatedJobs = this.state.jobs.map((job) => {
       if (job.id === id) {
@@ -97,10 +98,11 @@ class App extends React.Component {
         <AddJobModal
           modalPreview={this.state.modalPreview}
           toggleModal={this.toggleModal}
+          handleCreateJobs={this.handleCreateJobs}
         />
       </>
     );
   }
 }
 
-export default App;
+export default withAuth0(App);

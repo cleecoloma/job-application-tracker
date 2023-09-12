@@ -8,7 +8,20 @@ class AddJobModal extends React.Component {
   constructor() {
     super();
   }
-  
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let { company, location, title } = e.target;
+    if (company && location && title) {
+      this.props.handleCreateJobs({
+        company: company.value,
+        location: location.value,
+        title: title.value,
+      });
+      this.props.toggleModal();
+    }
+  };
+
   render() {
     return (
       <>
@@ -23,7 +36,7 @@ class AddJobModal extends React.Component {
             <Modal.Title>Add New Job</Modal.Title>
           </Modal.Header>
 
-          <Form className="m-3">
+          <Form className="m-3" onSubmit={this.handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Company</Form.Label>
               <Form.Control type="text" placeholder="Enter Company Name" />

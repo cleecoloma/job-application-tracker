@@ -1,6 +1,7 @@
 import React from 'react';
 import JobCard from './JobCard';
-import '../styles/Listings.css'
+import '../styles/Listings.css';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class Listings extends React.Component {
   constructor() {
@@ -18,4 +19,6 @@ class Listings extends React.Component {
   }
 }
 
-export default Listings;
+const AuthListings = withAuth0(Listings);
+
+export default AuthListings;
