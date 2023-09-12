@@ -18,23 +18,22 @@ class Listings extends React.Component {
     };
   }
 
-  sendRequest = async (method, token, id, data) => {
+  sendRequest = (method, token, id, data) => {
     const config = {
+      method,
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      method,
-      baseUrl: SERVER_URL,
+      baseURL: SERVER_URL,
       url: id ? `/jobs/${id}` : '/jobs',
       data: data ? data : null,
     };
-    return await axios(config);
+    return axios(config);
   };
 
   async componentDidMount() {
     const response = await this.props.auth0.getIdTokenClaims();
     const token = response.__raw;
-    // console.log(token);
     this.setState({ token }, () => {
       this.handleGetJobs();
     });
@@ -42,7 +41,7 @@ class Listings extends React.Component {
 
   // READ
   handleGetJobs = async () => {
-    const response = this.sendRequest('GET', this.state.token);
+    const response = await this.sendRequest('GET', this.state.token);
     this.setState({
       jobs: response.data,
     });
@@ -51,7 +50,7 @@ class Listings extends React.Component {
   // CREATE
   handleCreateJobs = async (job) => {
     const jobObject = job;
-    const response = this.sendRequest(
+    const response = await this.sendRequest(
       'POST',
       this.state.token,
       null,
@@ -65,7 +64,12 @@ class Listings extends React.Component {
 
   // UPDATE
   handleUpdateJobs = async (id, updatedJob) => {
-    const response = this.sendRequest('PUT', this.state.token, id, updatedJob);
+    const response = await this.sendRequest(
+      'PUT',
+      this.state.token,
+      id,
+      updatedJob
+    );
     const updatedJobs = this.state.jobs.map((job) => {
       if (job.id === id) {
         return response.data;
@@ -80,9 +84,9 @@ class Listings extends React.Component {
 
   // DELETE
   handleDeleteJobs = async (id) => {
-    const response = this.sendRequest('DELETE', this.state.token, id);
-    const updatedJobs = this.props.jobs.filter((job) => {
-      recipe._id !== id;
+    const response = await this.sendRequest('DELETE', this.state.token, id);
+    const updatedJobs = this.state.jobs.filter((job) => {
+      job.id !== id;
     });
     this.setState({
       jobs: updatedJobs,
@@ -113,7 +117,7 @@ class Listings extends React.Component {
         <div>
           {this.state.jobs.length > 0
             ? this.state.jobs.map((job, idx) => (
-                <JobCard key={idx} jobs={this.state.jobs} />
+                <JobCard key={idx} jobs={job} />
               ))
             : null}
         </div>
