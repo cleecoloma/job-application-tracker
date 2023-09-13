@@ -140,6 +140,7 @@ class Listings extends React.Component {
           editModalPreview={this.state.editModalPreview}
           toggleEditModal={this.toggleEditModal}
           jobs={this.state.editSpecificJob}
+          handleUpdateJobs={this.handleUpdateJobs}
         />
         <FullModal
           toggleFullModal={this.toggleFullModal}
