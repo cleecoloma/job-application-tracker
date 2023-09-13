@@ -42,9 +42,7 @@ class Listings extends React.Component {
   // READ
   handleGetJobs = async () => {
     // console.log('Sending get request')
-    const response = await this.sendRequest(
-      'GET', 
-      this.state.token);
+    const response = await this.sendRequest('GET', this.state.token);
     this.setState({
       jobs: response.data,
     });
@@ -105,10 +103,10 @@ class Listings extends React.Component {
   render() {
     // console.log(this.state.token);
     return (
-      <div className="listings">
+      <>
         <Button
-          className="button"
-          variant="primary"
+          className="addButton"
+          variant="success"
           onClick={() => this.toggleModal()}
         >
           + Add Job
@@ -118,14 +116,14 @@ class Listings extends React.Component {
           toggleModal={this.toggleModal}
           handleCreateJobs={this.handleCreateJobs}
         />
-        <div>
-          {this.state.jobs.length > 0
-            ? this.state.jobs.map((job, idx) => (
-                <JobCard key={idx} jobs={job} />
-              ))
-            : null}
+        <div className="listings">
+            {this.state.jobs.length > 0
+              ? this.state.jobs.map((job, idx) => (
+                  <JobCard key={idx} jobs={job} />
+                ))
+              : null}
         </div>
-      </div>
+      </>
     );
   }
 }
