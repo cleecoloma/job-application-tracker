@@ -12,38 +12,23 @@ class JobCard extends React.Component {
   render() {
     return (
       <>
-        <Card className="card" style={{ width: '16rem' }}>
+        <Card className="card">
           <Card.Body className="card-container">
-            <Card.Img
-              // variant="top"
+            {/* <Card.Img
               className="card-img"
               src="https://placehold.co/10x10"
-            />
+            /> */}
             <div className="card-text">
               <div className="card-title">
-                <Card.Text>
+                <Card.Text className="text">
                   <strong>{this.props.jobs.company}</strong>
                 </Card.Text>
-                <Card.Text>
+                <Card.Text className="text">
                   {this.props.jobs.location}
                 </Card.Text>
               </div>
               <hr />
-              <Card.Text>
-                {this.props.jobs.title}
-              </Card.Text>
-              <Card.Text>Added on MM/DD/YYYY</Card.Text>
-              {/* <Accordion className="accordion">
-                <Accordion.Item className="accordion" eventKey="1">
-                  <Accordion.Header>Notes</Accordion.Header>
-                  <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion> */}
+              <Card.Text className="text">{this.props.jobs.title}</Card.Text>
             </div>
             <Button
               className="card-button"

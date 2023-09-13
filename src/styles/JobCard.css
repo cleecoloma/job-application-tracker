@@ -1,24 +1,25 @@
 .card {
   border-radius: 12px;
-  background-color: rgb(236, 243, 244);
+  background-color: rgb(235, 240, 240);
   border-style: none;
   margin: 1rem 1rem;
-  height: 15.5rem;
+  height: 9rem;
+  width: 16rem
 }
 
 .card-body {
-  position: relative;
-  top: -1.5rem;
+  /* position: relative; */
+  /* top: -1.5rem; */
 }
 
-.card-img {
+/* .card-img {
   display: flex;
   justify-content: center;
   margin: 0 auto;
   width: 4rem;
   position: relative;
   top: 1rem;
-}
+} */
 
 .card-title {
   display: flex;
@@ -32,14 +33,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  background-color: rgb(175, 225, 190);
-  padding: 2px 0 2px;
   border-radius: 1rem;
-}
-
-.accordion {
-  background-color: rgb(175, 225, 190);
-  margin-bottom: 4px;
 }
 
 .card-button {
