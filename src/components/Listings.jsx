@@ -47,12 +47,10 @@ class Listings extends React.Component {
 
   // READ
   handleGetJobs = async () => {
-    // console.log('Sending get request')
     const response = await this.sendRequest('GET', this.state.token);
     this.setState({
       jobs: response.data,
     });
-    // console.log('Got get request back')
   };
 
   // CREATE
@@ -121,7 +119,6 @@ class Listings extends React.Component {
   };
 
   render() {
-    // console.log(this.state.token);
     return (
       <>
         <Button
