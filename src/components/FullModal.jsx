@@ -26,37 +26,42 @@ class FullModal extends React.Component {
   render() {
     return (
       <>
-        <Modal
-          show={this.props.fullModalPreview}
-          onHide={this.props.toggleFullModal}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-              {/* {this.props.jobs.title} */}
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {/* <h4>{this.props.jobs.company}</h4>
-            <p>{this.props.jobs.location}</p> */}
-            {/* <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-              ac consectetur ac, vestibulum at eros.
-            </p> */}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" type="submit">
-              Edit
-            </Button>
-            <Button variant="danger" type="submit">
-              Delete
-            </Button>
-            <Button onClick={this.props.toggleFullModal}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+        {this.props.jobs ? (
+          <Modal
+            show={this.props.fullModalPreview}
+            onHide={this.props.toggleFullModal}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title id="contained-modal-title-vcenter">
+                {this.props.jobs.title}
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <h4>{this.props.jobs.company}</h4>
+            <p>{this.props.jobs.location}</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button 
+              variant="secondary" 
+              type="submit"
+              onClick={() => this.props.toggleEditModal(this.props.jobs)}
+              >
+                Edit
+              </Button>
+              <Button 
+              variant="danger" 
+              type="submit"
+              // onClick={this.props.toggleDelete}
+              >
+                Delete
+              </Button>
+              <Button onClick={this.props.toggleFullModal}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        ) : null}
       </>
     );
   }

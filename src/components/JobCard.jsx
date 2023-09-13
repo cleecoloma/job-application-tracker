@@ -44,7 +44,7 @@ class JobCard extends React.Component {
             <Button 
               className="card-button" 
               variant="primary"
-              onClick={() => this.props.toggleFullModal()}
+              onClick={() => this.props.toggleFullModal(this.props.jobs)}
             >
               See More!
             </Button>

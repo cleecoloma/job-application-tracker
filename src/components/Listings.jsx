@@ -5,6 +5,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import AddJobModal from './AddJobModal';
+import EditJobModal from './EditJobModal';
 import FullModal from './FullModal';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
@@ -17,6 +18,9 @@ class Listings extends React.Component {
       token: null,
       modalPreview: false,
       fullModalPreview: false,
+      showSpecificJob: null,
+      editSpecificJob: null,
+      editModalPreview: false,
     };
   }
 
@@ -102,8 +106,18 @@ class Listings extends React.Component {
     this.setState({ modalPreview: !this.state.modalPreview });
   };
 
-  toggleFullModal = () => {
-    this.setState({ fullModalPreview: !this.state.fullModalPreview });
+  toggleFullModal = (job) => {
+    this.setState({
+      fullModalPreview: !this.state.fullModalPreview,
+      showSpecificJob: job,
+    });
+  };
+
+  toggleEditModal = (job) => {
+    this.setState({
+      editModalPreview: !this.state.editModalPreview,
+      editSpecificJob: job,
+    });
   };
 
   render() {
@@ -122,10 +136,16 @@ class Listings extends React.Component {
           toggleModal={this.toggleModal}
           handleCreateJobs={this.handleCreateJobs}
         />
+        <EditJobModal
+          editModalPreview={this.state.editModalPreview}
+          toggleEditModal={this.toggleEditModal}
+          jobs={this.state.editSpecificJob}
+        />
         <FullModal
           toggleFullModal={this.toggleFullModal}
           fullModalPreview={this.state.fullModalPreview}
-          // jobs={job}
+          jobs={this.state.showSpecificJob}
+          toggleEditModal={this.toggleEditModal}
         />
         <div className="listings">
           {this.state.jobs.length > 0
@@ -135,6 +155,8 @@ class Listings extends React.Component {
                   jobs={job}
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
+                  toggleEdit={this.toggleEdit}
+                  toggleDelete={this.toggleDelete}
                 />
               ))
             : null}
