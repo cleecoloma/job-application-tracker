@@ -8,19 +8,39 @@ import Row from 'react-bootstrap/Row';
 class EditJobModal extends React.Component {
   constructor() {
     super();
+    this.state = {
+      company: '',
+      location: '',
+      title: '',
+      link: '',
+      status: 'Interested',
+      notes: '',
+    };
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.jobs && prevProps.jobs !== this.props.jobs) {
+      const { company, location, title, link, status, notes } = this.props.jobs;
+      this.setState({ company, location, title, link, status, notes });
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let { company, location, title } = e.target;
-    if (company && location && title) {
-      this.props.handleUpdateJobs(this.props.jobs._id, {
-        company: company.value,
-        location: location.value,
-        title: title.value,
-      });
-      this.props.toggleEditModal();
-    }
+    const { company, location, title, link, status, notes } = this.state;
+    this.props.handleUpdateJobs(this.props.jobs._id, {
+      company,
+      location,
+      title,
+      link,
+      status,
+      notes,
+    });
+    this.props.toggleEditModal();
   };
 
   render() {
@@ -43,7 +63,8 @@ class EditJobModal extends React.Component {
                 <Form.Label>Company</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder={this.props.jobs.company}
+                  value={this.state.company}
+                  onChange={this.handleChange}
                   name="company"
                 />
               </Form.Group>
@@ -52,7 +73,8 @@ class EditJobModal extends React.Component {
                 <Form.Label>Location</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder={this.props.jobs.location}
+                  value={this.state.location}
+                  onChange={this.handleChange}
                   name="location"
                 />
               </Form.Group>
@@ -61,7 +83,8 @@ class EditJobModal extends React.Component {
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder={this.props.jobs.title}
+                  value={this.state.title}
+                  onChange={this.handleChange}
                   name="title"
                 />
               </Form.Group>
@@ -70,7 +93,8 @@ class EditJobModal extends React.Component {
                 <Form.Label>Posting Link</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter Posting Link"
+                  value={this.state.link}
+                  onChange={this.handleChange}
                   name="link"
                 />
               </Form.Group>
@@ -78,7 +102,11 @@ class EditJobModal extends React.Component {
               <Row className="mb-3">
                 <Form.Group as={Col}>
                   <Form.Label>Status</Form.Label>
-                  <Form.Select defaultValue={'Interested'} name="status">
+                  <Form.Select
+                    value={this.state.status}
+                    onChange={this.handleChange}
+                    name="status"
+                  >
                     <option>Interested</option>
                     <option>Applied</option>
                     <option>Interview</option>
@@ -89,7 +117,13 @@ class EditJobModal extends React.Component {
 
               <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Notes</Form.Label>
-                <Form.Control as="textarea" rows={3} name="notes" />
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={this.state.notes}
+                  onChange={this.handleChange}
+                  name="notes"
+                />
               </Form.Group>
 
               <Button variant="primary" type="submit">
