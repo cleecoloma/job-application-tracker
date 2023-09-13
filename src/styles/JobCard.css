@@ -7,20 +7,6 @@
   width: 16rem
 }
 
-.card-body {
-  /* position: relative; */
-  /* top: -1.5rem; */
-}
-
-/* .card-img {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  width: 4rem;
-  position: relative;
-  top: 1rem;
-} */
-
 .card-title {
   display: flex;
   margin-top: 8px;
