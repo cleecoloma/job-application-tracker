@@ -171,7 +171,20 @@ class Listings extends React.Component {
                   : null}
               </div>
             </Col>
-            <Col>2 of 3</Col>
+            <Col>
+              <div className="listings">
+                {this.state.jobs.length > 0
+                  ? this.state.jobs.map((job, idx) => (
+                      <JobCard
+                        key={idx}
+                        jobs={job}
+                        toggleFullModal={this.toggleFullModal}
+                        fullModalPreview={this.state.fullModalPreview}
+                      />
+                    ))
+                  : null}
+              </div>
+            </Col>
             <Col>3 of 3</Col>
             <Col>3 of 3</Col>
           </Row>

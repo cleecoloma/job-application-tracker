@@ -13,7 +13,7 @@ class JobCard extends React.Component {
     return (
       <>
         <Card className="card" style={{ width: '16rem' }}>
-          <Card.Body>
+          <Card.Body className="card-container">
             <Card.Img
               // variant="top"
               className="card-img"
@@ -24,10 +24,14 @@ class JobCard extends React.Component {
                 <Card.Text>
                   <strong>{this.props.jobs.company}</strong>
                 </Card.Text>
-                <Card.Text>{this.props.jobs.location}</Card.Text>
+                <Card.Text>
+                  {this.props.jobs.location}
+                </Card.Text>
               </div>
               <hr />
-              <Card.Text>{this.props.jobs.title}</Card.Text>
+              <Card.Text>
+                {this.props.jobs.title}
+              </Card.Text>
               <Card.Text>Added on MM/DD/YYYY</Card.Text>
               {/* <Accordion className="accordion">
                 <Accordion.Item className="accordion" eventKey="1">
@@ -41,8 +45,8 @@ class JobCard extends React.Component {
                 </Accordion.Item>
               </Accordion> */}
             </div>
-            <Button 
-              className="card-button" 
+            <Button
+              className="card-button"
               variant="primary"
               onClick={() => this.props.toggleFullModal(this.props.jobs)}
             >
