@@ -5,6 +5,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import AddJobModal from './AddJobModal';
+import FullModal from './FullModal';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -15,6 +16,7 @@ class Listings extends React.Component {
       jobs: [],
       token: null,
       modalPreview: false,
+      fullModalPreview: false,
     };
   }
 
@@ -100,6 +102,10 @@ class Listings extends React.Component {
     this.setState({ modalPreview: !this.state.modalPreview });
   };
 
+  toggleFullModal = () => {
+    this.setState({ fullModalPreview: !this.state.fullModalPreview });
+  };
+
   render() {
     // console.log(this.state.token);
     return (
@@ -116,12 +122,22 @@ class Listings extends React.Component {
           toggleModal={this.toggleModal}
           handleCreateJobs={this.handleCreateJobs}
         />
+        <FullModal
+          toggleFullModal={this.toggleFullModal}
+          fullModalPreview={this.state.fullModalPreview}
+          // jobs={job}
+        />
         <div className="listings">
-            {this.state.jobs.length > 0
-              ? this.state.jobs.map((job, idx) => (
-                  <JobCard key={idx} jobs={job} />
-                ))
-              : null}
+          {this.state.jobs.length > 0
+            ? this.state.jobs.map((job, idx) => (
+                <JobCard
+                  key={idx}
+                  jobs={job}
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                />
+              ))
+            : null}
         </div>
       </>
     );

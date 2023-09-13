@@ -41,7 +41,11 @@ class JobCard extends React.Component {
                 </Accordion.Item>
               </Accordion> */}
             </div>
-            <Button className="card-button" variant="primary">
+            <Button 
+              className="card-button" 
+              variant="primary"
+              onClick={() => this.props.toggleFullModal()}
+            >
               See More!
             </Button>
           </Card.Body>

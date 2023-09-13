@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+
 class AddJobModal extends React.Component {
   constructor() {
     super();
