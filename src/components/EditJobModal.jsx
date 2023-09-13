@@ -14,12 +14,12 @@ class EditJobModal extends React.Component {
     e.preventDefault();
     let { company, location, title } = e.target;
     if (company && location && title) {
-      this.props.handleCreateJobs({
+      this.props.handleUpdateJobs(this.props.jobs._id, {
         company: company.value,
         location: location.value,
         title: title.value,
       });
-      this.props.toggleModal();
+      this.props.toggleEditModal();
     }
   };
 
@@ -40,28 +40,28 @@ class EditJobModal extends React.Component {
 
             <Form className="m-3" onSubmit={this.handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>{this.props.jobs.company}</Form.Label>
+                <Form.Label>Company</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter Company Name"
+                  placeholder={this.props.jobs.company}
                   name="company"
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>{this.props.jobs.location}</Form.Label>
+                <Form.Label>Location</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter Location"
+                  placeholder={this.props.jobs.location}
                   name="location"
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>{this.props.jobs.title}</Form.Label>
+                <Form.Label>Title</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter Title"
+                  placeholder={this.props.jobs.title}
                   name="title"
                 />
               </Form.Group>

@@ -67,7 +67,6 @@ class Listings extends React.Component {
     this.setState({
       jobs: [...this.state.jobs, response.data],
     });
-    console.log(jobObject);
   };
 
   // UPDATE
@@ -94,9 +93,10 @@ class Listings extends React.Component {
   handleDeleteJobs = async (id) => {
     const response = await this.sendRequest('DELETE', this.state.token, id);
     const updatedJobs = this.state.jobs.filter((job) => {
-      job.id !== id;
+      job._id !== id;
     });
     this.setState({
+      fullModalPreview: !this.state.fullModalPreview,
       jobs: updatedJobs,
     });
     this.handleGetJobs();
@@ -140,12 +140,14 @@ class Listings extends React.Component {
           editModalPreview={this.state.editModalPreview}
           toggleEditModal={this.toggleEditModal}
           jobs={this.state.editSpecificJob}
+          handleUpdateJobs={this.handleUpdateJobs}
         />
         <FullModal
           toggleFullModal={this.toggleFullModal}
           fullModalPreview={this.state.fullModalPreview}
           jobs={this.state.showSpecificJob}
           toggleEditModal={this.toggleEditModal}
+          handleDeleteJobs={this.handleDeleteJobs}
         />
         <div className="listings">
           {this.state.jobs.length > 0
@@ -155,8 +157,6 @@ class Listings extends React.Component {
                   jobs={job}
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
-                  toggleEdit={this.toggleEdit}
-                  toggleDelete={this.toggleDelete}
                 />
               ))
             : null}

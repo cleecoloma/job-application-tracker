@@ -41,20 +41,20 @@ class FullModal extends React.Component {
             </Modal.Header>
             <Modal.Body>
               <h4>{this.props.jobs.company}</h4>
-            <p>{this.props.jobs.location}</p>
+              <p>{this.props.jobs.location}</p>
             </Modal.Body>
             <Modal.Footer>
-              <Button 
-              variant="secondary" 
-              type="submit"
-              onClick={() => this.props.toggleEditModal(this.props.jobs)}
+              <Button
+                variant="secondary"
+                type="submit"
+                onClick={() => this.props.toggleEditModal(this.props.jobs)}
               >
                 Edit
               </Button>
-              <Button 
-              variant="danger" 
-              type="submit"
-              // onClick={this.props.toggleDelete}
+              <Button
+                variant="danger"
+                type="submit"
+                onClick={() => this.props.handleDeleteJobs(this.props.jobs._id)}
               >
                 Delete
               </Button>
