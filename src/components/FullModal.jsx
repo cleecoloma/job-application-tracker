@@ -10,19 +10,6 @@ class FullModal extends React.Component {
     super();
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   let { company, location, title } = e.target;
-  //   if (company && location && title) {
-  //     this.props.handleCreateJobs({
-  //       company: company.value,
-  //       location: location.value,
-  //       title: title.value,
-  //     });
-  //     this.props.toggleModal();
-  //   }
-  // };
-
   render() {
     return (
       <>

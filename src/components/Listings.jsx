@@ -7,6 +7,9 @@ import Button from 'react-bootstrap/Button';
 import AddJobModal from './AddJobModal';
 import EditJobModal from './EditJobModal';
 import FullModal from './FullModal';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -47,12 +50,10 @@ class Listings extends React.Component {
 
   // READ
   handleGetJobs = async () => {
-    // console.log('Sending get request')
     const response = await this.sendRequest('GET', this.state.token);
     this.setState({
       jobs: response.data,
     });
-    // console.log('Got get request back')
   };
 
   // CREATE
@@ -121,7 +122,6 @@ class Listings extends React.Component {
   };
 
   render() {
-    // console.log(this.state.token);
     return (
       <>
         <Button
@@ -149,18 +149,46 @@ class Listings extends React.Component {
           toggleEditModal={this.toggleEditModal}
           handleDeleteJobs={this.handleDeleteJobs}
         />
-        <div className="listings">
-          {this.state.jobs.length > 0
-            ? this.state.jobs.map((job, idx) => (
-                <JobCard
-                  key={idx}
-                  jobs={job}
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                />
-              ))
-            : null}
-        </div>
+        <Container className="listings-container">
+          <Row>
+            <Col className="listings-header">Interested</Col>
+            <Col className="listings-header">Applied</Col>
+            <Col className="listings-header">Interview</Col>
+            <Col className="listings-header">Rejected</Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className="listings">
+                {this.state.jobs.length > 0
+                  ? this.state.jobs.map((job, idx) => (
+                      <JobCard
+                        key={idx}
+                        jobs={job}
+                        toggleFullModal={this.toggleFullModal}
+                        fullModalPreview={this.state.fullModalPreview}
+                      />
+                    ))
+                  : null}
+              </div>
+            </Col>
+            <Col>
+              <div className="listings">
+                {this.state.jobs.length > 0
+                  ? this.state.jobs.map((job, idx) => (
+                      <JobCard
+                        key={idx}
+                        jobs={job}
+                        toggleFullModal={this.toggleFullModal}
+                        fullModalPreview={this.state.fullModalPreview}
+                      />
+                    ))
+                  : null}
+              </div>
+            </Col>
+            <Col>3 of 3</Col>
+            <Col>3 of 3</Col>
+          </Row>
+        </Container>
       </>
     );
   }
