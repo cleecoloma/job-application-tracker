@@ -12,7 +12,7 @@ class JobCard extends React.Component {
   render() {
     return (
       <>
-        <Card className="card" style={{ width: '20rem' }}>
+        <Card className="card" style={{ width: '16rem' }}>
           <Card.Body>
             <Card.Img
               // variant="top"
