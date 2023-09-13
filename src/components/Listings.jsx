@@ -102,7 +102,7 @@ class Listings extends React.Component {
     this.handleGetJobs();
   };
 
-  toggleModal = () => {
+  toggleAddModal = () => {
     this.setState({ modalPreview: !this.state.modalPreview });
   };
 
@@ -117,7 +117,7 @@ class Listings extends React.Component {
     this.setState({
       editModalPreview: !this.state.editModalPreview,
       editSpecificJob: job,
-    });
+    }, () => this.toggleFullModal());
   };
 
   render() {
@@ -127,13 +127,13 @@ class Listings extends React.Component {
         <Button
           className="addButton"
           variant="success"
-          onClick={() => this.toggleModal()}
+          onClick={() => this.toggleAddModal()}
         >
           + Add Job
         </Button>
         <AddJobModal
           modalPreview={this.state.modalPreview}
-          toggleModal={this.toggleModal}
+          toggleAddModal={this.toggleAddModal}
           handleCreateJobs={this.handleCreateJobs}
         />
         <EditJobModal

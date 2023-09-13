@@ -19,7 +19,7 @@ class AddJobModal extends React.Component {
         location: location.value,
         title: title.value,
       });
-      this.props.toggleModal();
+      this.props.toggleAddModal();
     }
   };
 
@@ -28,7 +28,7 @@ class AddJobModal extends React.Component {
       <>
         <Modal
           show={this.props.modalPreview}
-          onHide={this.props.toggleModal}
+          onHide={this.props.toggleAddModal}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered

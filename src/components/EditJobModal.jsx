@@ -28,8 +28,8 @@ class EditJobModal extends React.Component {
       <>
         {this.props.jobs ? (
           <Modal
-            show={this.props.modalPreview}
-            onHide={this.props.toggleModal}
+            show={this.props.editModalPreview}
+            onHide={this.props.toggleEditModal}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
