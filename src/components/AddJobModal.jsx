@@ -12,12 +12,15 @@ class AddJobModal extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let { company, location, title } = e.target;
+    let { company, location, title, link, status, notes } = e.target;
     if (company && location && title) {
       this.props.handleCreateJobs({
         company: company.value,
         location: location.value,
         title: title.value,
+        link: link.value ? link.value : "",
+        status: status.value,
+        notes: notes.value ? notes.value : "",
       });
       this.props.toggleAddModal();
     }
@@ -70,27 +73,28 @@ class AddJobModal extends React.Component {
               <Form.Control
                 type="text"
                 placeholder="Enter Posting Link"
-                name="postingLink"
+                name="link"
               />
             </Form.Group>
 
             <Row className="mb-3">
               <Form.Group as={Col}>
-                <Form.Label>Applied?</Form.Label>
-                <Form.Select>
-                  <option>No</option>
-                  <option>Yes</option>
+                <Form.Label>Status</Form.Label>
+                <Form.Select 
+                defaultValue={"Interested"}
+                name="status"
+                >
+                  <option>Interested</option>
+                  <option>Applied</option>
+                  <option>Interview</option>
+                  <option>Rejected</option>
                 </Form.Select>
-              </Form.Group>
-              <Form.Group as={Col} controlId="datePicker">
-                <Form.Label>If applied, when?</Form.Label>
-                <Form.Control type="text" placeholder="MM/DD/YYYY" />
               </Form.Group>
             </Row>
 
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Notes</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              <Form.Control as="textarea" rows={3} name="notes" />
             </Form.Group>
 
             <Button variant="primary" type="submit">
