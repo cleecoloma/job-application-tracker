@@ -24,6 +24,7 @@ class Listings extends React.Component {
       showSpecificJob: null,
       editSpecificJob: null,
       editModalPreview: false,
+      backgroundColor: ['lightgray', 'lightseagreen', 'lightsalmon', 'lightpink']
     };
   }
 
@@ -160,33 +161,71 @@ class Listings extends React.Component {
             <Col>
               <div className="listings">
                 {this.state.jobs.length > 0
-                  ? this.state.jobs.map((job, idx) => (
-                      <JobCard
-                        key={idx}
-                        jobs={job}
-                        toggleFullModal={this.toggleFullModal}
-                        fullModalPreview={this.state.fullModalPreview}
-                      />
-                    ))
+                  ? this.state.jobs
+                      .filter((job) => job.status === 'Interested')
+                      .map((job, idx) => (
+                        <JobCard
+                          key={idx}
+                          jobs={job}
+                          toggleFullModal={this.toggleFullModal}
+                          fullModalPreview={this.state.fullModalPreview}
+                          backgroundColor={this.state.backgroundColor[0]}
+                        />
+                      ))
                   : null}
               </div>
             </Col>
             <Col>
               <div className="listings">
                 {this.state.jobs.length > 0
-                  ? this.state.jobs.map((job, idx) => (
-                      <JobCard
-                        key={idx}
-                        jobs={job}
-                        toggleFullModal={this.toggleFullModal}
-                        fullModalPreview={this.state.fullModalPreview}
-                      />
-                    ))
+                  ? this.state.jobs
+                      .filter((job) => job.status === 'Applied')
+                      .map((job, idx) => (
+                        <JobCard
+                          key={idx}
+                          jobs={job}
+                          toggleFullModal={this.toggleFullModal}
+                          fullModalPreview={this.state.fullModalPreview}
+                          backgroundColor={this.state.backgroundColor[1]}
+                        />
+                      ))
                   : null}
               </div>
             </Col>
-            <Col>3 of 3</Col>
-            <Col>3 of 3</Col>
+            <Col>
+              <div className="listings">
+                {this.state.jobs.length > 0
+                  ? this.state.jobs
+                      .filter((job) => job.status === 'Interview')
+                      .map((job, idx) => (
+                        <JobCard
+                          key={idx}
+                          jobs={job}
+                          toggleFullModal={this.toggleFullModal}
+                          fullModalPreview={this.state.fullModalPreview}
+                          backgroundColor={this.state.backgroundColor[2]}
+                        />
+                      ))
+                  : null}
+              </div>
+            </Col>
+            <Col>
+              <div className="listings">
+                {this.state.jobs.length > 0
+                  ? this.state.jobs
+                      .filter((job) => job.status === 'Rejected')
+                      .map((job, idx) => (
+                        <JobCard
+                          key={idx}
+                          jobs={job}
+                          toggleFullModal={this.toggleFullModal}
+                          fullModalPreview={this.state.fullModalPreview}
+                          backgroundColor={this.state.backgroundColor[3]}
+                        />
+                      ))
+                  : null}
+              </div>
+            </Col>
           </Row>
         </Container>
       </>

@@ -10,14 +10,11 @@ class JobCard extends React.Component {
   }
 
   render() {
+    const { backgroundColor } = this.props;
     return (
       <>
-        <Card className="card">
+        <Card className="card" style={{ backgroundColor }}>
           <Card.Body className="card-container">
-            {/* <Card.Img
-              className="card-img"
-              src="https://placehold.co/10x10"
-            /> */}
             <div className="card-text">
               <div className="card-title">
                 <Card.Text className="text">
