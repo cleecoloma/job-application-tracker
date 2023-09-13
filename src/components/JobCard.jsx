@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Accordion from 'react-bootstrap/Accordion';
+import { ZoomIn, Link } from 'react-bootstrap-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/JobCard.css';
 
 class JobCard extends React.Component {
@@ -27,13 +28,30 @@ class JobCard extends React.Component {
               <hr />
               <Card.Text className="text">{this.props.jobs.title}</Card.Text>
             </div>
-            <Button
-              className="card-button"
-              variant="primary"
-              onClick={() => this.props.toggleFullModal(this.props.jobs)}
-            >
-              See More!
-            </Button>
+            <div className="buttons">
+              <Button
+                className="card-button"
+                variant="light"
+                onClick={() => this.props.toggleFullModal(this.props.jobs)}
+              >
+                <a
+                  href={this.props.jobs.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ZoomIn size={30} />
+                </a>
+              </Button>
+              <Button className="card-button" variant="light">
+                <a
+                  href={this.props.jobs.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Link size={30} />
+                </a>
+              </Button>
+            </div>
           </Card.Body>
         </Card>
       </>
