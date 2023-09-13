@@ -29,7 +29,7 @@ class JobCard extends React.Component {
               <hr />
               <Card.Text>{this.props.jobs.title}</Card.Text>
               <Card.Text>Added on MM/DD/YYYY</Card.Text>
-              <Accordion className="accordion">
+              {/* <Accordion className="accordion">
                 <Accordion.Item className="accordion" eventKey="1">
                   <Accordion.Header>Notes</Accordion.Header>
                   <Accordion.Body>
@@ -39,10 +39,14 @@ class JobCard extends React.Component {
                     ullamco laboris nisi ut aliquip ex ea commodo consequat.
                   </Accordion.Body>
                 </Accordion.Item>
-              </Accordion>
+              </Accordion> */}
             </div>
-            <Button className="card-button" variant="primary">
-              Posting Link
+            <Button 
+              className="card-button" 
+              variant="primary"
+              onClick={() => this.props.toggleFullModal(this.props.jobs)}
+            >
+              See More!
             </Button>
           </Card.Body>
         </Card>

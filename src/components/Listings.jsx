@@ -5,6 +5,8 @@ import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import AddJobModal from './AddJobModal';
+import EditJobModal from './EditJobModal';
+import FullModal from './FullModal';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -15,6 +17,10 @@ class Listings extends React.Component {
       jobs: [],
       token: null,
       modalPreview: false,
+      fullModalPreview: false,
+      showSpecificJob: null,
+      editSpecificJob: null,
+      editModalPreview: false,
     };
   }
 
@@ -96,8 +102,22 @@ class Listings extends React.Component {
     this.handleGetJobs();
   };
 
-  toggleModal = () => {
+  toggleAddModal = () => {
     this.setState({ modalPreview: !this.state.modalPreview });
+  };
+
+  toggleFullModal = (job) => {
+    this.setState({
+      fullModalPreview: !this.state.fullModalPreview,
+      showSpecificJob: job,
+    });
+  };
+
+  toggleEditModal = (job) => {
+    this.setState({
+      editModalPreview: !this.state.editModalPreview,
+      editSpecificJob: job,
+    }, () => this.toggleFullModal());
   };
 
   render() {
@@ -107,21 +127,39 @@ class Listings extends React.Component {
         <Button
           className="addButton"
           variant="success"
-          onClick={() => this.toggleModal()}
+          onClick={() => this.toggleAddModal()}
         >
           + Add Job
         </Button>
         <AddJobModal
           modalPreview={this.state.modalPreview}
-          toggleModal={this.toggleModal}
+          toggleAddModal={this.toggleAddModal}
           handleCreateJobs={this.handleCreateJobs}
         />
+        <EditJobModal
+          editModalPreview={this.state.editModalPreview}
+          toggleEditModal={this.toggleEditModal}
+          jobs={this.state.editSpecificJob}
+        />
+        <FullModal
+          toggleFullModal={this.toggleFullModal}
+          fullModalPreview={this.state.fullModalPreview}
+          jobs={this.state.showSpecificJob}
+          toggleEditModal={this.toggleEditModal}
+        />
         <div className="listings">
-            {this.state.jobs.length > 0
-              ? this.state.jobs.map((job, idx) => (
-                  <JobCard key={idx} jobs={job} />
-                ))
-              : null}
+          {this.state.jobs.length > 0
+            ? this.state.jobs.map((job, idx) => (
+                <JobCard
+                  key={idx}
+                  jobs={job}
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  toggleEdit={this.toggleEdit}
+                  toggleDelete={this.toggleDelete}
+                />
+              ))
+            : null}
         </div>
       </>
     );
