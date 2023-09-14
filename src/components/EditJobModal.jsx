@@ -12,6 +12,7 @@ class EditJobModal extends React.Component {
       company: '',
       location: '',
       title: '',
+      addedDate: '',
       link: '',
       status: 'Interested',
       notes: '',
@@ -20,8 +21,8 @@ class EditJobModal extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.jobs && prevProps.jobs !== this.props.jobs) {
-      const { company, location, title, link, status, notes } = this.props.jobs;
-      this.setState({ company, location, title, link, status, notes });
+      const { company, location, title, addedDate, link, status, notes } = this.props.jobs;
+      this.setState({ company, location, title, addedDate, link, status, notes });
     }
   }
 
@@ -31,11 +32,12 @@ class EditJobModal extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { company, location, title, link, status, notes } = this.state;
+    const { company, location, title, addedDate, link, status, notes } = this.state;
     this.props.handleUpdateJobs(this.props.jobs._id, {
       company,
       location,
       title,
+      addedDate,
       link,
       status,
       notes,
