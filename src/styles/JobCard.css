@@ -33,7 +33,6 @@
 .card-button {
   display: flex;
   justify-content: center;
-  margin: 0 8px;
   width: 4rem;
 }
 
@@ -44,7 +43,5 @@
 }
 
 .added-text {
-  font-size: 80%;
-  color: rgb(143, 34, 34);
-  
+  font-size: 70%;
 }

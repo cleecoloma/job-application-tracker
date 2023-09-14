@@ -29,9 +29,10 @@ class JobCard extends React.Component {
               <Card.Text className="text">{this.props.jobs.title}</Card.Text>
             </div>
             <div className="card-text-bottom">
-              <Card.Text className="added-text">
-                Added on: 
-                {/* {this.props.jobs.addedDate} */}
+              <Card.Text style={{ color: 'darkslategrey ' }} className='added-text'>
+                  Added on:
+                  <br />
+                  {this.props.jobs.addedDate}
               </Card.Text>
               <div className="buttons">
                 <Button
