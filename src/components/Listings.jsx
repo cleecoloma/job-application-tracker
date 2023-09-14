@@ -1,5 +1,5 @@
 import React from 'react';
-import JobCard from './JobCard';
+import JobColumn from './JobColumn';
 import '../styles/Listings.css';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
@@ -24,9 +24,25 @@ class Listings extends React.Component {
       showSpecificJob: null,
       editSpecificJob: null,
       editModalPreview: false,
-      backgroundColor: { interested: 'lightgray', applied: 'lightseagreen', interview: 'lightsalmon', rejected: 'lightpink' }
+      backgroundColor: { interested: 'lightgray', applied: 'lightseagreen', interview: 'lightsalmon', rejected: 'lightpink' },
+      showSelect: window.innerWidth <= 1000,
+      inputType: 'option1'
     };
   }
+
+  handleWindowSizeChange = () => {
+    this.setState({
+      showSelect: window.innerWidth <= 1000,
+    })
+  }
+
+  handleInputChange = (event) => {
+    this.setState({
+      inputType: event.target.value,
+    })
+  }
+
+  con
 
   sendRequest = (method, token, id, data) => {
     const config = {
@@ -47,6 +63,7 @@ class Listings extends React.Component {
     this.setState({ token }, () => {
       this.handleGetJobs();
     });
+    window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
   // READ
@@ -153,88 +170,92 @@ class Listings extends React.Component {
           backgroundColor={this.state.backgroundColor}
         />
         <Container className="listings-container">
-          <Row>
-            <Col className="listings-header">Interested</Col>
-            <Col className="listings-header">Applied</Col>
-            <Col className="listings-header">Interview</Col>
-            <Col className="listings-header">Rejected</Col>
-          </Row>
-          <Row>
-            <Col>
-              <div className="listings">
-                <hr className="listing-hr" />
-                {this.state.jobs.length > 0
-                  ? this.state.jobs
-                      .filter((job) => job.status === 'Interested')
-                      .map((job, idx) => (
-                        <JobCard
-                          key={idx}
-                          jobs={job}
-                          toggleFullModal={this.toggleFullModal}
-                          fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={
-                            this.state.backgroundColor.interested
-                          }
-                        />
-                      ))
-                  : null}
-              </div>
-            </Col>
-            <Col>
-              <div className="listings">
-                <hr className="listing-hr" />
-                {this.state.jobs.length > 0
-                  ? this.state.jobs
-                      .filter((job) => job.status === 'Applied')
-                      .map((job, idx) => (
-                        <JobCard
-                          key={idx}
-                          jobs={job}
-                          toggleFullModal={this.toggleFullModal}
-                          fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor.applied}
-                        />
-                      ))
-                  : null}
-              </div>
-            </Col>
-            <Col>
-              <div className="listings">
-                <hr className="listing-hr" />
-                {this.state.jobs.length > 0
-                  ? this.state.jobs
-                      .filter((job) => job.status === 'Interview')
-                      .map((job, idx) => (
-                        <JobCard
-                          key={idx}
-                          jobs={job}
-                          toggleFullModal={this.toggleFullModal}
-                          fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor.interview}
-                        />
-                      ))
-                  : null}
-              </div>
-            </Col>
-            <Col>
-              <div className="listings">
-                <hr className="listing-hr" />
-                {this.state.jobs.length > 0
-                  ? this.state.jobs
-                      .filter((job) => job.status === 'Rejected')
-                      .map((job, idx) => (
-                        <JobCard
-                          key={idx}
-                          jobs={job}
-                          toggleFullModal={this.toggleFullModal}
-                          fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor.rejected}
-                        />
-                      ))
-                  : null}
-              </div>
-            </Col>
-          </Row>
+          {this.state.showSelect ? (
+            <div>
+              <select
+                className="listings-selector btn btn-outline-light"
+                value={this.state.inputType}
+                onChange={this.handleInputChange}
+              >
+                <option value="option1">Interested</option>
+                <option value="option2">Applied</option>
+                <option value="option3">Interview</option>
+                <option value="option4">Rejected</option>
+              </select>
+              {this.state.inputType === 'option1' ? (
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Interested"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.interested}
+                />
+              ) : this.state.inputType === 'option2' ? (
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Applied"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.applied}
+                />
+              ) : this.state.inputType === 'option3' ? (
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Interview"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.interview}
+                />
+              ) : (
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Rejected"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.rejected}
+                />
+              )}
+            </div>
+          ) : (
+            <div>
+              <Row>
+                <Col className="listings-header">Interested</Col>
+                <Col className="listings-header">Applied</Col>
+                <Col className="listings-header">Interview</Col>
+                <Col className="listings-header">Rejected</Col>
+              </Row>
+              <Row>
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Interested"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.interested}
+                />
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Applied"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.applied}
+                />
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Interview"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.interview}
+                />
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Rejected"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.rejected}
+                />
+              </Row>
+            </div>
+          )}
         </Container>
       </>
     );

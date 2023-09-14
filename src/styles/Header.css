@@ -3,14 +3,18 @@
 #brand-name {
   color: rgb(22, 22, 22);
   font-family: 'Thasadith', sans-serif;
-  padding: 6px 12px;
   border: thin solid rgb(22, 22, 22);
+  padding: 6px 12px;
   font-weight: 700;
   border-radius: 6px;
 }
 
 .button {
   letter-spacing: 2px;
+}
+
+.header {
+  padding: 8px 5rem;
 }
 
 .header-button {
@@ -28,4 +32,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .header {
+    padding: 8px 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    padding: 8px 1rem;
+  }
 }
