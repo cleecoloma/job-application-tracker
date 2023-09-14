@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import '../styles/Search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -20,9 +21,8 @@ class Search extends React.Component {
           <Form className="d-flex mx-auto">
             <Form.Control
               type="search"
-              style={{ width: '20rem' }}
               placeholder="Search"
-              className="me-2"
+              className="me-2 search"
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>

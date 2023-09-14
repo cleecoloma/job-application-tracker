@@ -21,7 +21,7 @@ class Header extends React.Component {
     const { isAuthenticated } = this.props.auth0;
     return (
       <>
-        <Navbar fixed="top" expand="lg" className="bg-body-tertiary px-5">
+        <Navbar fixed="top" expand="lg" className="bg-body-tertiary header">
           <Container fluid>
             <Navbar.Brand href="#" id="brand-name">
               Job Application Tracker
