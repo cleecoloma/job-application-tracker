@@ -1,9 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import { Link } from 'react-bootstrap-icons';
 import '../styles/FullModal.css';
 
 class FullModal extends React.Component {
@@ -18,18 +16,40 @@ class FullModal extends React.Component {
           <Modal
             show={this.props.fullModalPreview}
             onHide={this.props.toggleFullModal}
-            size="lg"
+            size="md"
             aria-labelledby="contained-modal-title-vcenter"
             centered
           >
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title-vcenter">
                 {this.props.jobs.title}
+                <p style={{ fontSize: '60%', marginBottom: '0' }}>
+                  Added on {this.props.jobs.addedDate}
+                </p>
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <h4>{this.props.jobs.company}</h4>
-              <p>{this.props.jobs.location}</p>
+              <div className="full-modal-body">
+                <div>
+                  <h4>{this.props.jobs.company}</h4>
+                  <p>{this.props.jobs.location}</p>
+                </div>
+                <div>
+                  <Button
+                    className="card-button"
+                    variant="link"
+                    href={this.props.jobs.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Link size={30} />
+                  </Button>
+                </div>
+              </div>
+            </Modal.Body>
+            <Modal.Body>
+              Notes: <br />
+              {this.props.jobs.notes}
             </Modal.Body>
             <Modal.Footer className="footer">
               <p>{this.props.jobs.status}</p>

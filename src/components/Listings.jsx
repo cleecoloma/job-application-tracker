@@ -24,7 +24,7 @@ class Listings extends React.Component {
       showSpecificJob: null,
       editSpecificJob: null,
       editModalPreview: false,
-      backgroundColor: ['lightgray', 'lightseagreen', 'lightsalmon', 'lightpink']
+      backgroundColor: { interested: 'lightgray', applied: 'lightseagreen', interview: 'lightsalmon', rejected: 'lightpink' }
     };
   }
 
@@ -170,7 +170,7 @@ class Listings extends React.Component {
                           jobs={job}
                           toggleFullModal={this.toggleFullModal}
                           fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor[0]}
+                          backgroundColor={this.state.backgroundColor.interested}
                         />
                       ))
                   : null}
@@ -188,7 +188,7 @@ class Listings extends React.Component {
                           jobs={job}
                           toggleFullModal={this.toggleFullModal}
                           fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor[1]}
+                          backgroundColor={this.state.backgroundColor.applied}
                         />
                       ))
                   : null}
@@ -206,7 +206,7 @@ class Listings extends React.Component {
                           jobs={job}
                           toggleFullModal={this.toggleFullModal}
                           fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor[2]}
+                          backgroundColor={this.state.backgroundColor.interview}
                         />
                       ))
                   : null}
@@ -224,7 +224,7 @@ class Listings extends React.Component {
                           jobs={job}
                           toggleFullModal={this.toggleFullModal}
                           fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor[3]}
+                          backgroundColor={this.state.backgroundColor.rejected}
                         />
                       ))
                   : null}
