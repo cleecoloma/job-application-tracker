@@ -173,25 +173,47 @@ class Listings extends React.Component {
           {this.state.showSelect ? (
             <div>
               <select
-                className="listings"
+                className="listings-selector btn btn-outline-light"
                 value={this.state.inputType}
                 onChange={this.handleInputChange}
               >
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-                <option value="option4">Option 4</option>
-                {/* Add more options as needed */}
+                <option value="option1">Interested</option>
+                <option value="option2">Applied</option>
+                <option value="option3">Interview</option>
+                <option value="option4">Rejected</option>
               </select>
-              {/* Display content based on the selected input type */}
               {this.state.inputType === 'option1' ? (
-                <div>Content for Option 1</div>
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Interested"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.interested}
+                />
               ) : this.state.inputType === 'option2' ? (
-                <div>Content for Option 2</div>
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Applied"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.applied}
+                />
               ) : this.state.inputType === 'option3' ? (
-                <div>Content for Option 3</div>
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Interview"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.interview}
+                />
               ) : (
-                <div>Content for Option 4</div>
+                <JobColumn
+                  jobs={this.state.jobs}
+                  status="Rejected"
+                  toggleFullModal={this.toggleFullModal}
+                  fullModalPreview={this.state.fullModalPreview}
+                  backgroundColor={this.state.backgroundColor.rejected}
+                />
               )}
             </div>
           ) : (
