@@ -21,11 +21,27 @@
   border-radius: 1rem;
 }
 
-.card-button {
+.buttons {
   display: flex;
   /* position: relative; */
   justify-content: center;
   margin: 8px auto 0;
-  width: 8rem;
+  width: 4rem;
   /* top: 1rem; */
+}
+
+.card-button {
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+}
+
+.card-text-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.added-text {
+  font-size: 70%;
 }

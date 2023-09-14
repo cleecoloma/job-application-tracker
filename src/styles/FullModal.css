@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer p {
+  background-color: bisque;
+  border-radius: 16px;
+  padding: 4px 8px;
+}
+
+.button {
+  width: 5rem;
+  margin: 0 8px;
+}
+
+.full-modal-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
