@@ -160,6 +160,7 @@ class Listings extends React.Component {
           <Row>
             <Col>
               <div className="listings">
+                <hr className="listing-hr" />
                 {this.state.jobs.length > 0
                   ? this.state.jobs
                       .filter((job) => job.status === 'Interested')
@@ -177,6 +178,7 @@ class Listings extends React.Component {
             </Col>
             <Col>
               <div className="listings">
+                <hr className="listing-hr" />
                 {this.state.jobs.length > 0
                   ? this.state.jobs
                       .filter((job) => job.status === 'Applied')
@@ -194,6 +196,7 @@ class Listings extends React.Component {
             </Col>
             <Col>
               <div className="listings">
+                <hr className="listing-hr" />
                 {this.state.jobs.length > 0
                   ? this.state.jobs
                       .filter((job) => job.status === 'Interview')
@@ -211,6 +214,7 @@ class Listings extends React.Component {
             </Col>
             <Col>
               <div className="listings">
+                <hr className="listing-hr" />
                 {this.state.jobs.length > 0
                   ? this.state.jobs
                       .filter((job) => job.status === 'Rejected')

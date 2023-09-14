@@ -36,3 +36,15 @@
   margin: 0 8px;
   width: 4rem;
 }
+
+.card-text-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.added-text {
+  font-size: 80%;
+  color: rgb(143, 34, 34);
+  
+}

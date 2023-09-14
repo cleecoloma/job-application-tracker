@@ -32,3 +32,9 @@
   color: rgb(35, 35, 35);
 }
 
+.listing-hr {
+  width: 70%;
+  height: 3px;
+  background-color: black;
+  border-radius: 3px;
+}

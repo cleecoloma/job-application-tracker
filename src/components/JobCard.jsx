@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { ZoomIn, Link } from 'react-bootstrap-icons';
+import { ThreeDots, Link } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/JobCard.css';
 
@@ -28,29 +28,29 @@ class JobCard extends React.Component {
               <hr />
               <Card.Text className="text">{this.props.jobs.title}</Card.Text>
             </div>
-            <div className="buttons">
-              <Button
-                className="card-button"
-                variant="light"
-                onClick={() => this.props.toggleFullModal(this.props.jobs)}
-              >
-                <a
+            <div className="card-text-bottom">
+              <Card.Text className="added-text">
+                Added on: 
+                {/* {this.props.jobs.addedDate} */}
+              </Card.Text>
+              <div className="buttons">
+                <Button
+                  className="card-button"
+                  variant="link"
                   href={this.props.jobs.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ZoomIn size={30} />
-                </a>
-              </Button>
-              <Button className="card-button" variant="light">
-                <a
-                  href={this.props.jobs.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  <Link size={22} />
+                </Button>
+                <Button
+                  className="card-button"
+                  variant="link"
+                  onClick={() => this.props.toggleFullModal(this.props.jobs)}
                 >
-                  <Link size={30} />
-                </a>
-              </Button>
+                  <ThreeDots size={22} />
+                </Button>
+              </div>
             </div>
           </Card.Body>
         </Card>
