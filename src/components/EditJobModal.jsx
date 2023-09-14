@@ -43,6 +43,7 @@ class EditJobModal extends React.Component {
       notes,
     });
     this.props.toggleEditModal();
+    this.props.toggleFullModal();
   };
 
   render() {

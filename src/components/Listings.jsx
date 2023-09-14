@@ -144,8 +144,7 @@ class Listings extends React.Component {
       {
         editModalPreview: !this.state.editModalPreview,
         editSpecificJob: job,
-      },
-      () => this.toggleFullModal()
+      }
     );
   };
 
@@ -169,6 +168,7 @@ class Listings extends React.Component {
           toggleEditModal={this.toggleEditModal}
           jobs={this.state.editSpecificJob}
           handleUpdateJobs={this.handleUpdateJobs}
+          toggleFullModal={this.toggleFullModal}
         />
         <FullModal
           toggleFullModal={this.toggleFullModal}
