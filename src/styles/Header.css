@@ -10,29 +10,22 @@
 }
 
 .button {
-  margin-right: 2rem;
-  width: 10rem;
   letter-spacing: 2px;
 }
 
-#profile-button {
-  margin-right: 2rem;
-}
-
-#profile-button,
-#contact-button {
-  width: 6rem;
+.header-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: underline;
-  text-decoration-color: lightblue;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 50%;
   border-radius: 8px;
 }
 
-#profile-button:hover,
-#contact-button:hover {
+.header-button:hover {
   background-color: lightblue;
+}
+
+#logout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
