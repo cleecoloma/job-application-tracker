@@ -61,10 +61,6 @@ class FullModal extends React.Component {
     this.handleNotes();
   };
 
-  // handleBackgroundColor = () => {
-  //   return this.props.backgroundColor[this.state.status]
-  // }
-
   render() {
     return (
       <>
@@ -164,7 +160,7 @@ class FullModal extends React.Component {
                 <Button
                   variant="secondary"
                   className="button"
-                  onClick={this.props.toggleFullModal}
+                  onClick={() => this.props.toggleFullModal()}
                 >
                   Close
                 </Button>

@@ -24,25 +24,28 @@ class Listings extends React.Component {
       showSpecificJob: null,
       editSpecificJob: null,
       editModalPreview: false,
-      backgroundColor: { interested: 'lightgray', applied: 'lightseagreen', interview: 'lightsalmon', rejected: 'lightpink' },
+      backgroundColor: {
+        interested: 'lightgray',
+        applied: 'lightseagreen',
+        interview: 'lightsalmon',
+        rejected: 'lightpink',
+      },
       showSelect: window.innerWidth <= 1000,
-      inputType: 'option1'
+      inputType: 'option1',
     };
   }
 
   handleWindowSizeChange = () => {
     this.setState({
       showSelect: window.innerWidth <= 1000,
-    })
-  }
+    });
+  };
 
   handleInputChange = (event) => {
     this.setState({
       inputType: event.target.value,
-    })
-  }
-
-  con
+    });
+  };
 
   sendRequest = (method, token, id, data) => {
     const config = {
@@ -64,6 +67,10 @@ class Listings extends React.Component {
       this.handleGetJobs();
     });
     window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
   }
 
   // READ
@@ -133,10 +140,13 @@ class Listings extends React.Component {
   };
 
   toggleEditModal = (job) => {
-    this.setState({
-      editModalPreview: !this.state.editModalPreview,
-      editSpecificJob: job,
-    }, () => this.toggleFullModal());
+    this.setState(
+      {
+        editModalPreview: !this.state.editModalPreview,
+        editSpecificJob: job,
+      },
+      () => this.toggleFullModal()
+    );
   };
 
   render() {
