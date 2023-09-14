@@ -2,8 +2,15 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+// import NavItem from 'react-bootstrap/NavItem';
+// import NavLink from 'react-bootstrap/NavLink';
 import '../styles/Header.css';
-import AuthButtons from '../../auth/AuthButton';
+import Login from '../../auth/Login';
+import Logout from '../../auth/Logout';
+import { withAuth0 } from '@auth0/auth0-react';
+import { Button } from 'react-bootstrap';
+import { PersonCircle } from 'react-bootstrap-icons';
 
 class Header extends React.Component {
   constructor() {
@@ -11,6 +18,7 @@ class Header extends React.Component {
   }
 
   render() {
+    const { isAuthenticated } = this.props.auth0;
     return (
       <>
         <Navbar fixed="top" expand="lg" className="bg-body-tertiary px-5">
@@ -25,15 +33,24 @@ class Header extends React.Component {
                 style={{ maxHeight: '100px' }}
                 navbarScroll
               ></Nav>
-              <div className="d-flex">
-                <Nav.Link id="profile-button" to="/Profile">
+              {
+                isAuthenticated ? <NavDropdown
+                title={<PersonCircle size={30} />}
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item id="profile-button" href="/Profile">
                   Profile
-                </Nav.Link>
-                <Nav.Link id="contact-button" to="/Contact">
+                </NavDropdown.Item>
+                <NavDropdown.Item id="contact-button" href="/Contact">
                   Contact
-                </Nav.Link>
-                <AuthButtons />
-              </div>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/">
+                  <Logout />
+                </NavDropdown.Item>
+              </NavDropdown> :
+              <Login />
+              }
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -42,4 +59,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withAuth0(Header);
