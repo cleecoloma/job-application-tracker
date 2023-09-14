@@ -26,35 +26,32 @@ class Header extends React.Component {
             <Navbar.Brand href="#" id="brand-name">
               Job Application Tracker
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: '100px' }}
-                navbarScroll
-              ></Nav>
-              {isAuthenticated ? (
-                <NavDropdown
-                  title={<PersonCircle size={30} />}
-                  id="basic-nav-dropdown"
-                  className="custom-dropdown"
-                  align="end"
-                >
-                  <NavDropdown.Item className="header-button" href="/Profile">
-                    Profile
-                  </NavDropdown.Item>
-                  <NavDropdown.Item className="header-button" href="/Contact">
-                    Contact
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <div id="logout-button">
-                    <Logout />
-                  </div>
-                </NavDropdown>
-              ) : (
-                <Login />
-              )}
-            </Navbar.Collapse>
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            ></Nav>
+            {isAuthenticated ? (
+              <NavDropdown
+                title={<PersonCircle size={30} />}
+                id="basic-nav-dropdown"
+                className="custom-dropdown"
+                align="end"
+              >
+                <NavDropdown.Item className="header-button" href="/Profile">
+                  Profile
+                </NavDropdown.Item>
+                <NavDropdown.Item className="header-button" href="/Contact">
+                  Contact
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <div id="logout-button">
+                  <Logout />
+                </div>
+              </NavDropdown>
+            ) : (
+              <Login />
+            )}
           </Container>
         </Navbar>
       </>
