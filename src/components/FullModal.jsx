@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import '../styles/FullModal.css';
 
 class FullModal extends React.Component {
   constructor() {
@@ -30,22 +31,35 @@ class FullModal extends React.Component {
               <h4>{this.props.jobs.company}</h4>
               <p>{this.props.jobs.location}</p>
             </Modal.Body>
-            <Modal.Footer>
-              <Button
-                variant="secondary"
-                type="submit"
-                onClick={() => this.props.toggleEditModal(this.props.jobs)}
-              >
-                Edit
-              </Button>
-              <Button
-                variant="danger"
-                type="submit"
-                onClick={() => this.props.handleDeleteJobs(this.props.jobs._id)}
-              >
-                Delete
-              </Button>
-              <Button onClick={this.props.toggleFullModal}>Close</Button>
+            <Modal.Footer className="footer">
+              <p>{this.props.jobs.status}</p>
+              <div>
+                <Button
+                  className="button"
+                  variant="primary"
+                  type="submit"
+                  onClick={() => this.props.toggleEditModal(this.props.jobs)}
+                >
+                  Edit
+                </Button>
+                <Button
+                  className="button"
+                  variant="danger"
+                  type="submit"
+                  onClick={() =>
+                    this.props.handleDeleteJobs(this.props.jobs._id)
+                  }
+                >
+                  Delete
+                </Button>
+                <Button
+                  variant="secondary"
+                  className="button"
+                  onClick={this.props.toggleFullModal}
+                >
+                  Close
+                </Button>
+              </div>
             </Modal.Footer>
           </Modal>
         ) : null}
