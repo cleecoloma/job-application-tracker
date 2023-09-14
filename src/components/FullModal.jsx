@@ -25,9 +25,21 @@ class FullModal extends React.Component {
         link,
         status,
         notes,
+        isSaved: false,
       });
     }
   }
+
+  handleNotes = () => {
+    this.setState({
+      isSaved: !this.state.isSaved,
+    });
+    setTimeout(() => {
+      this.setState({
+        isSaved: !this.state.isSaved,
+      });
+    }, 1000);
+  };
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -46,7 +58,7 @@ class FullModal extends React.Component {
       status,
       notes,
     });
-    this.props.toggleEditModal();
+    this.handleNotes();
   };
 
   render() {
@@ -99,9 +111,12 @@ class FullModal extends React.Component {
                     name="notes"
                   />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
+                <div className="notes-submit">
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                  <div className={`notes-saved ${this.state.isSaved ? 'notes-saved-visible' : ''} `}>Changes saved!</div>
+                </div>
               </Form>
             </Modal.Body>
             <Modal.Footer className="footer">

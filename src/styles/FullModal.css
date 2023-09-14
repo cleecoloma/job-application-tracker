@@ -20,3 +20,22 @@
   align-items: center;
 }
 
+.notes-submit {
+  display: flex;
+  align-items: center;
+}
+
+.notes-saved {
+  margin-left: 1rem;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: rgb(230, 230, 230);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.notes-saved-visible {
+  opacity: 1;
+}
+
+
