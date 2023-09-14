@@ -4,9 +4,8 @@
 }
 
 .footer p {
-  background-color: bisque;
   border-radius: 16px;
-  padding: 4px 8px;
+  padding: 4px 12px;
 }
 
 .button {
@@ -37,5 +36,3 @@
 .notes-saved-visible {
   opacity: 1;
 }
-
-

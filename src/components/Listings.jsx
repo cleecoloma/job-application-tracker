@@ -150,6 +150,7 @@ class Listings extends React.Component {
           toggleEditModal={this.toggleEditModal}
           handleDeleteJobs={this.handleDeleteJobs}
           handleUpdateJobs={this.handleUpdateJobs}
+          backgroundColor={this.state.backgroundColor}
         />
         <Container className="listings-container">
           <Row>

@@ -61,6 +61,10 @@ class FullModal extends React.Component {
     this.handleNotes();
   };
 
+  // handleBackgroundColor = () => {
+  //   return this.props.backgroundColor[this.state.status]
+  // }
+
   render() {
     return (
       <>
@@ -115,12 +119,29 @@ class FullModal extends React.Component {
                   <Button variant="primary" type="submit">
                     Submit
                   </Button>
-                  <div className={`notes-saved ${this.state.isSaved ? 'notes-saved-visible' : ''} `}>Changes saved!</div>
+                  <div
+                    className={`notes-saved ${
+                      this.state.isSaved ? 'notes-saved-visible' : ''
+                    } `}
+                  >
+                    Changes saved!
+                  </div>
                 </div>
               </Form>
             </Modal.Body>
             <Modal.Footer className="footer">
-              <p>{this.props.jobs.status}</p>
+              <p
+                style={{
+                  backgroundColor: this.props.jobs
+                    ? this.props.backgroundColor[
+                        this.props.jobs.status.toLowerCase()
+                      ]
+                    : '',
+                }}
+              >
+                {this.props.jobs.status}
+              </p>
+
               <div>
                 <Button
                   className="button"
