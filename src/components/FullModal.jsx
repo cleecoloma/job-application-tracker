@@ -2,12 +2,52 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-bootstrap-icons';
+import Form from 'react-bootstrap/Form';
 import '../styles/FullModal.css';
 
 class FullModal extends React.Component {
   constructor() {
     super();
+    this.state = {
+      notes: '',
+    };
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.jobs && prevProps.jobs !== this.props.jobs) {
+      const { company, location, title, addedDate, link, status, notes } =
+        this.props.jobs;
+      this.setState({
+        company,
+        location,
+        title,
+        addedDate,
+        link,
+        status,
+        notes,
+      });
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { company, location, title, addedDate, link, status, notes } =
+      this.state;
+    this.props.handleUpdateJobs(this.props.jobs._id, {
+      company,
+      location,
+      title,
+      addedDate,
+      link,
+      status,
+      notes,
+    });
+    this.props.toggleEditModal();
+  };
 
   render() {
     return (
@@ -48,8 +88,21 @@ class FullModal extends React.Component {
               </div>
             </Modal.Body>
             <Modal.Body>
-              Notes: <br />
-              {this.props.jobs.notes}
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicText">
+                  <Form.Label>Notes</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    value={this.state.notes}
+                    onChange={this.handleChange}
+                    name="notes"
+                  />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
             </Modal.Body>
             <Modal.Footer className="footer">
               <p>{this.props.jobs.status}</p>

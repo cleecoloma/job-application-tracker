@@ -149,6 +149,7 @@ class Listings extends React.Component {
           jobs={this.state.showSpecificJob}
           toggleEditModal={this.toggleEditModal}
           handleDeleteJobs={this.handleDeleteJobs}
+          handleUpdateJobs={this.handleUpdateJobs}
         />
         <Container className="listings-container">
           <Row>
@@ -170,7 +171,9 @@ class Listings extends React.Component {
                           jobs={job}
                           toggleFullModal={this.toggleFullModal}
                           fullModalPreview={this.state.fullModalPreview}
-                          backgroundColor={this.state.backgroundColor.interested}
+                          backgroundColor={
+                            this.state.backgroundColor.interested
+                          }
                         />
                       ))
                   : null}
