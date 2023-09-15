@@ -1,21 +1,27 @@
-import { Component } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
-import '../styles/About.css';
+import '../styles/Profile.css';
+import { withAuth0 } from '@auth0/auth0-react';
 
-class Profile extends Component {
+class Profile extends React.Component {
+  constructor() {
+    super();
+  }
   render() {
+    const { user, isAuthenticated } = this.props.auth0;
     return (
+      isAuthenticated && (
       <div className="centered-container">
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={this.props.user.picture} />
+          <Card.Img variant="top" src={user.picture} />
           <Card.Body>
-            <Card.Title>{this.props.user.nickname}</Card.Title>
-            <Card.Text>{this.props.user.email}</Card.Text>
+            <Card.Title>{user.nickname}</Card.Title>
+            <Card.Text>{user.email}</Card.Text>
           </Card.Body>
         </Card>
-      </div>
+      </div>)
     );
   }
 }
 
-export default Profile;
+export default withAuth0(Profile);
