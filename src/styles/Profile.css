@@ -1,0 +1,10 @@
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+#profile-card {
+  margin: 0 1rem;
+}

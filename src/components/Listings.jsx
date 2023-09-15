@@ -66,8 +66,8 @@ class Listings extends React.Component {
     const token = response.__raw;
     this.setState({ token }, () => {
       this.handleGetJobs();
+      this.props.handleProfilePage(response);
     });
-    // this.props.handleJobs(this.state.jobs);
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
