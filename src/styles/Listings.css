@@ -1,5 +1,5 @@
 .listings-container {
-  position: fixed;
+  position: absolute;
   top: 14rem;
   left: 50%;
   transform: translateX(-50%);
@@ -21,7 +21,7 @@ select {
 }
 
 .addButton {
-  position: fixed;
+  position: absolute;
   width: 20rem;
   height: 3rem;
   top: 9rem;
