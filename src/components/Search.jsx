@@ -13,9 +13,10 @@ class Search extends React.Component {
 
   handleChange = (e) => {
     const newSearch = e.target.value;
-    this.setState({ searchTerm: newSearch });
-    this.props.filterData(this.state.searchTerm);
-    console.log(this.state.searchTerm);
+    this.setState({ searchTerm: newSearch }, () => {
+      this.props.filterData(this.state.searchTerm);
+      console.log(this.state.searchTerm);
+    });
   };
 
   render() {
@@ -31,7 +32,7 @@ class Search extends React.Component {
           <Form className="d-flex mx-auto">
             <Form.Control
               type="search"
-              placeholder="Search for title or company"
+              placeholder="Search for company, title, or location"
               className="me-2 search"
               aria-label="Search"
               value={this.state.searchValue}

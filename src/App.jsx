@@ -13,6 +13,7 @@ class App extends React.Component {
     this.state = {
       jobs: [],
       filteredJobs: [],
+      searchTerm: '',
     };
   }
 
@@ -23,8 +24,15 @@ class App extends React.Component {
     });
     this.setState({
       filteredJobs,
+      searchTerm,
     });
   };
+
+  handleJobs = (input) => {
+    this.setState({
+      jobs: input,
+    })
+  }
 
   render() {
     const { isAuthenticated } = this.props.auth0;
@@ -39,9 +47,19 @@ class App extends React.Component {
               path="/"
               element={
                 isAuthenticated ? (
-                  <Listings
-                    filteredJobs={this.state.filteredJobs}
-                  />
+                  this.state.filteredJobs.length > 0 ? (
+                    <Listings
+                      jobs={this.state.filteredJobs}
+                      handleJobs={this.handleJobs}
+                      filteredJobs={this.state.filteredJobs}
+                    />
+                  ) : (
+                    <Listings
+                      jobs={this.state.jobs}
+                      handleJobs={this.handleJobs}
+                      filteredJobs={this.state.filteredJobs}
+                    />
+                  )
                 ) : (
                   <h2 style={{ display: 'flex', justifyContent: 'center' }}>
                     Please log in to view job listings!
