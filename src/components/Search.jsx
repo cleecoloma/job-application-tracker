@@ -6,26 +6,37 @@ import '../styles/Search.css';
 class Search extends React.Component {
   constructor() {
     super();
+    this.state = {
+      searchTerm: '',
+    };
   }
 
+  handleChange = (e) => {
+    const newSearch = e.target.value;
+    this.setState({ searchTerm: newSearch });
+    this.props.filterData(this.state.searchTerm);
+    console.log(this.state.searchTerm);
+  };
+
   render() {
-     const searchStyle = {
-       position: 'fixed',
-       top: '5rem',
-       left: '50%', // To horizontally center the search bar
-       transform: 'translateX(-50%)', // To center it horizontally
-     };
+    const searchStyle = {
+      position: 'fixed',
+      top: '5rem',
+      left: '50%',
+      transform: 'translateX(-50%)',
+    };
     return (
       <>
         <div style={searchStyle}>
           <Form className="d-flex mx-auto">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="Search for title or company"
               className="me-2 search"
               aria-label="Search"
+              value={this.state.searchValue}
+              onChange={this.handleChange}
             />
-            <Button variant="outline-success">Search</Button>
           </Form>
         </div>
       </>

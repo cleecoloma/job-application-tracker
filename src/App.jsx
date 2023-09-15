@@ -10,7 +10,21 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      jobs: [],
+      filteredJobs: [],
+    };
   }
+
+  filterData = (searchTerm) => {
+    const filteredJobs = this.state.jobs.filter((property) => {
+      const searchableValues = Object.values(property).join(' ').toLowerCase();
+      return searchableValues.includes(searchTerm.toLowerCase());
+    });
+    this.setState({
+      filteredJobs,
+    });
+  };
 
   render() {
     const { isAuthenticated } = this.props.auth0;
@@ -18,6 +32,7 @@ class App extends React.Component {
       <>
         <Router>
           <Header />
+          <Search filterData={this.filterData} />
           <Routes>
             <Route
               exact
@@ -40,7 +55,6 @@ class App extends React.Component {
             >
             </Route> */}
           </Routes>
-          <Search />
         </Router>
       </>
     );
