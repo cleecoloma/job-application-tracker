@@ -17,7 +17,7 @@ class Listings extends React.Component {
   constructor() {
     super();
     this.state = {
-      // jobs: [],
+      user: null,
       initialJobs: [],
       token: null,
       modalPreview: false,
@@ -48,14 +48,20 @@ class Listings extends React.Component {
     });
   };
 
-  sendRequest = (method, token, id, data) => {
+  sendRequest = (method, token, id, data, queryParams) => {
+    const baseURL = SERVER_URL;
+    let url = id ? `/jobs/${id}` : '/jobs';
+    if (queryParams) {
+      url += '?' + new URLSearchParams(queryParams).toString();
+    }
+
     const config = {
       method,
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      baseURL: SERVER_URL,
-      url: id ? `/jobs/${id}` : '/jobs',
+      baseURL,
+      url,
       data: data ? data : null,
     };
     return axios(config);
@@ -64,7 +70,7 @@ class Listings extends React.Component {
   async componentDidMount() {
     const response = await this.props.auth0.getIdTokenClaims();
     const token = response.__raw;
-    this.setState({ token }, () => {
+    this.setState({ token, user: response.email }, () => {
       this.handleGetJobs();
       this.props.handleProfilePage(response);
     });
@@ -77,7 +83,8 @@ class Listings extends React.Component {
 
   // READ
   handleGetJobs = async () => {
-    const response = await this.sendRequest('GET', this.state.token);
+    const queryParams = { user: this.state.user };
+    const response = await this.sendRequest('GET', this.state.token, null, null, queryParams);
     this.props.handleJobs(response.data)
   };
 
@@ -145,7 +152,6 @@ class Listings extends React.Component {
   };
 
   render() {
-    console.log(this.props.jobs)
     return (
       <>
         <Button
