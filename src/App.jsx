@@ -17,8 +17,8 @@ class App extends React.Component {
   }
 
   filterData = (searchTerm) => {
-    const filteredJobs = this.state.jobs.filter((property) => {
-      const searchableValues = Object.values(property).join(' ').toLowerCase();
+    const filteredJobs = this.state.jobs.filter((job) => {
+      const searchableValues = Object.values(job).join(' ').toLowerCase();
       return searchableValues.includes(searchTerm.toLowerCase());
     });
     this.setState({
@@ -40,8 +40,7 @@ class App extends React.Component {
               element={
                 isAuthenticated ? (
                   <Listings
-                    toggleModal={this.toggleModal}
-                    toggleJobs={this.toggleJobs}
+                    filteredJobs={this.state.filteredJobs}
                   />
                 ) : (
                   <h2 style={{ display: 'flex', justifyContent: 'center' }}>
