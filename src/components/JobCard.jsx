@@ -29,7 +29,7 @@ class JobCard extends React.Component {
               <Card.Text className="text">{this.props.jobs.title}</Card.Text>
             </div>
             <div className="card-text-bottom">
-              <Card.Text style={{ color: 'darkslategrey ' }} className='added-text'>
+              <Card.Text className='added-text'>
                   Added on:
                   <br />
                   {this.props.jobs.addedDate}
