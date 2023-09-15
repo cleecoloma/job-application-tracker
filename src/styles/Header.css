@@ -24,6 +24,11 @@
   width: 80%;
 }
 
+.custom-dropdown {
+  padding: 0;
+  margin: 0;
+}
+
 .header-button:hover {
   background-color: lightblue;
 }

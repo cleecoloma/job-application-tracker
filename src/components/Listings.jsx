@@ -79,9 +79,6 @@ class Listings extends React.Component {
   handleGetJobs = async () => {
     const response = await this.sendRequest('GET', this.state.token);
     this.props.handleJobs(response.data)
-    // this.setState({
-    //   jobs: response.data,
-    // });
   };
 
   // CREATE
@@ -94,9 +91,6 @@ class Listings extends React.Component {
       jobObject
     );
     this.props.handleJobs([...this.props.jobs, response.data]);
-    // this.setState({
-    //   jobs: [...this.state.jobs, response.data],
-    // });
   };
 
   // UPDATE
@@ -114,9 +108,6 @@ class Listings extends React.Component {
       return job;
     });
     this.props.handleJobs(updatedJobs);
-    // this.setState({
-    //   jobs: updatedJobs,
-    // });
     this.handleGetJobs();
   };
 
@@ -128,7 +119,6 @@ class Listings extends React.Component {
     });
     this.setState({
       fullModalPreview: !this.state.fullModalPreview,
-      // jobs: updatedJobs,
     });
     this.props.handleJobs(updatedJobs);
     this.handleGetJobs();
