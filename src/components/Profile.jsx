@@ -4,9 +4,7 @@ import '../styles/Profile.css';
 import { withAuth0 } from '@auth0/auth0-react';
 
 class Profile extends React.Component {
-  constructor() {
-    super();
-  }
+  
   render() {
     const { user, isAuthenticated } = this.props.auth0;
     return (
