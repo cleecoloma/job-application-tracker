@@ -12,7 +12,7 @@ class App extends React.Component {
     super();
     this.state = {
       jobs: [],
-      filteredJobs: [],
+      filteredJobs: null,
       searchTerm: '',
     };
   }
@@ -26,6 +26,8 @@ class App extends React.Component {
       filteredJobs,
       searchTerm,
     });
+    console.log('filteredJobs', this.state.filteredJobs)
+    console.log('jobs', this.state.jobs);
   };
 
   handleJobs = (input) => {
@@ -47,17 +49,15 @@ class App extends React.Component {
               path="/"
               element={
                 isAuthenticated ? (
-                  this.state.filteredJobs.length > 0 ? (
+                  this.state.filteredJobs ? (
                     <Listings
                       jobs={this.state.filteredJobs}
                       handleJobs={this.handleJobs}
-                      filteredJobs={this.state.filteredJobs}
                     />
                   ) : (
                     <Listings
                       jobs={this.state.jobs}
                       handleJobs={this.handleJobs}
-                      filteredJobs={this.state.filteredJobs}
                     />
                   )
                 ) : (
