@@ -25,6 +25,14 @@
   justify-content: center;
 }
 
+.github-icon {
+  color: #000000
+}
+
+.linkedin-icon {
+  color: #0077b5;
+}
+
 @media (max-width: 600px) {
   #contact-card {
     width: 22rem;
@@ -35,8 +43,8 @@
   #contact-card {
     width: 20rem;
   }
-  
+
   #contact-buttons {
-  margin: 0 1rem;
-}
+    margin: 0 1rem;
+  }
 }
