@@ -23,7 +23,7 @@ class Header extends React.Component {
       <>
         <Navbar fixed="top" expand="lg" className="bg-body-tertiary header">
           <Container fluid>
-            <Navbar.Brand href="#" id="brand-name">
+            <Navbar.Brand href="/" id="brand-name">
               Job Application Tracker
             </Navbar.Brand>
             <Nav
