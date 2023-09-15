@@ -5,6 +5,7 @@ import React from 'react';
 import Search from './components/Search';
 import Listings from './components/Listings';
 import Profile from './components/Profile';
+import Contact from './components/Contact';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -80,6 +81,7 @@ class App extends React.Component {
               }
             ></Route>
             <Route exact path="/Profile" element={<Profile />}></Route>
+            <Route exact path="/Contact" element={<Contact />}></Route>
           </Routes>
         </Router>
       </>
