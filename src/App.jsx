@@ -42,7 +42,7 @@ class App extends React.Component {
       <>
         <Router>
           <Header />
-          <Search filterData={this.filterData} />
+          {isAuthenticated ? <Search filterData={this.filterData} /> : null}
           <Routes>
             <Route
               exact
