@@ -145,6 +145,7 @@ class Listings extends React.Component {
   };
 
   render() {
+    console.log(this.props.jobs)
     return (
       <>
         <Button
