@@ -17,7 +17,8 @@ class Listings extends React.Component {
   constructor() {
     super();
     this.state = {
-      jobs: [],
+      // jobs: [],
+      initialJobs: [],
       token: null,
       modalPreview: false,
       fullModalPreview: false,
@@ -66,6 +67,7 @@ class Listings extends React.Component {
     this.setState({ token }, () => {
       this.handleGetJobs();
     });
+    // this.props.handleJobs(this.state.jobs);
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
@@ -76,9 +78,10 @@ class Listings extends React.Component {
   // READ
   handleGetJobs = async () => {
     const response = await this.sendRequest('GET', this.state.token);
-    this.setState({
-      jobs: response.data,
-    });
+    this.props.handleJobs(response.data)
+    // this.setState({
+    //   jobs: response.data,
+    // });
   };
 
   // CREATE
@@ -90,9 +93,10 @@ class Listings extends React.Component {
       null,
       jobObject
     );
-    this.setState({
-      jobs: [...this.state.jobs, response.data],
-    });
+    this.props.handleJobs([...this.props.jobs, response.data]);
+    // this.setState({
+    //   jobs: [...this.state.jobs, response.data],
+    // });
   };
 
   // UPDATE
@@ -103,28 +107,30 @@ class Listings extends React.Component {
       id,
       updatedJob
     );
-    const updatedJobs = this.state.jobs.map((job) => {
+    const updatedJobs = this.props.jobs.map((job) => {
       if (job.id === id) {
         return response.data;
       }
       return job;
     });
-    this.setState({
-      jobs: updatedJobs,
-    });
+    this.props.handleJobs(updatedJobs);
+    // this.setState({
+    //   jobs: updatedJobs,
+    // });
     this.handleGetJobs();
   };
 
   // DELETE
   handleDeleteJobs = async (id) => {
     const response = await this.sendRequest('DELETE', this.state.token, id);
-    const updatedJobs = this.state.jobs.filter((job) => {
+    const updatedJobs = this.props.jobs.filter((job) => {
       job._id !== id;
     });
     this.setState({
       fullModalPreview: !this.state.fullModalPreview,
-      jobs: updatedJobs,
+      // jobs: updatedJobs,
     });
+    this.props.handleJobs(updatedJobs);
     this.handleGetJobs();
   };
 
@@ -194,7 +200,7 @@ class Listings extends React.Component {
               </select>
               {this.state.inputType === 'option1' ? (
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Interested"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
@@ -202,7 +208,7 @@ class Listings extends React.Component {
                 />
               ) : this.state.inputType === 'option2' ? (
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Applied"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
@@ -210,7 +216,7 @@ class Listings extends React.Component {
                 />
               ) : this.state.inputType === 'option3' ? (
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Interview"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
@@ -218,7 +224,7 @@ class Listings extends React.Component {
                 />
               ) : (
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Rejected"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
@@ -236,28 +242,28 @@ class Listings extends React.Component {
               </Row>
               <Row>
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Interested"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.interested}
                 />
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Applied"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.applied}
                 />
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Interview"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.interview}
                 />
                 <JobColumn
-                  jobs={this.state.jobs}
+                  jobs={this.props.jobs}
                   status="Rejected"
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}

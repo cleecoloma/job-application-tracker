@@ -10,6 +10,28 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      jobs: [],
+      filteredJobs: [],
+      searchTerm: '',
+    };
+  }
+
+  filterData = (searchTerm) => {
+    const filteredJobs = this.state.jobs.filter((job) => {
+      const searchableValues = Object.values(job).join(' ').toLowerCase();
+      return searchableValues.includes(searchTerm.toLowerCase());
+    });
+    this.setState({
+      filteredJobs,
+      searchTerm,
+    });
+  };
+
+  handleJobs = (input) => {
+    this.setState({
+      jobs: input,
+    })
   }
 
   render() {
@@ -18,16 +40,26 @@ class App extends React.Component {
       <>
         <Router>
           <Header />
+          <Search filterData={this.filterData} />
           <Routes>
             <Route
               exact
               path="/"
               element={
                 isAuthenticated ? (
-                  <Listings
-                    toggleModal={this.toggleModal}
-                    toggleJobs={this.toggleJobs}
-                  />
+                  this.state.filteredJobs.length > 0 ? (
+                    <Listings
+                      jobs={this.state.filteredJobs}
+                      handleJobs={this.handleJobs}
+                      filteredJobs={this.state.filteredJobs}
+                    />
+                  ) : (
+                    <Listings
+                      jobs={this.state.jobs}
+                      handleJobs={this.handleJobs}
+                      filteredJobs={this.state.filteredJobs}
+                    />
+                  )
                 ) : (
                   <h2 style={{ display: 'flex', justifyContent: 'center' }}>
                     Please log in to view job listings!
@@ -40,7 +72,6 @@ class App extends React.Component {
             >
             </Route> */}
           </Routes>
-          <Search />
         </Router>
       </>
     );
