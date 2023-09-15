@@ -33,7 +33,7 @@ class Search extends React.Component {
             <Form.Control
               type="search"
               placeholder="Search for company, title, or location"
-              className="me-2 search"
+              className="search"
               aria-label="Search"
               value={this.state.searchValue}
               onChange={this.handleChange}
