@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 import Login from '../../auth/Login';
 import Logout from '../../auth/Logout';
@@ -35,11 +36,15 @@ class Header extends React.Component {
                 className="custom-dropdown"
                 align="end"
               >
-                <NavDropdown.Item className="header-button" href="/Profile">
-                  Profile
+                <NavDropdown.Item className="header-button">
+                  <Link className="nav-link custom-nav-link" to="/Profile">
+                    Profile
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item className="header-button" href="/Contact">
-                  Contact
+                <NavDropdown.Item className="header-button">
+                  <Link className="nav-link custom-nav-link" to="/Contact">
+                    Contact
+                  </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <div id="logout-button">
