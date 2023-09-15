@@ -50,26 +50,28 @@ class App extends React.Component {
       <>
         <Router>
           <Header />
-          {isAuthenticated ? <Search filterData={this.filterData} /> : null}
           <Routes>
             <Route
               exact
               path="/"
               element={
                 isAuthenticated ? (
-                  this.state.filteredJobs ? (
-                    <Listings
-                      handleProfilePage={this.handleProfilePage}
-                      jobs={this.state.filteredJobs}
-                      handleJobs={this.handleJobs}
-                    />
-                  ) : (
-                    <Listings
-                      handleProfilePage={this.handleProfilePage}
-                      jobs={this.state.jobs}
-                      handleJobs={this.handleJobs}
-                    />
-                  )
+                  <>
+                    <Search filterData={this.filterData} />
+                    {this.state.filteredJobs ? (
+                      <Listings
+                        handleProfilePage={this.handleProfilePage}
+                        jobs={this.state.filteredJobs}
+                        handleJobs={this.handleJobs}
+                      />
+                    ) : (
+                      <Listings
+                        handleProfilePage={this.handleProfilePage}
+                        jobs={this.state.jobs}
+                        handleJobs={this.handleJobs}
+                      />
+                    )}
+                  </>
                 ) : (
                   <h2 style={{ display: 'flex', justifyContent: 'center' }}>
                     Please log in to view job listings!
@@ -77,12 +79,7 @@ class App extends React.Component {
                 )
               }
             ></Route>
-            <Route
-              exact
-              path="/Profile"
-              element={<Profile />
-              }
-            ></Route>
+            <Route exact path="/Profile" element={<Profile />}></Route>
           </Routes>
         </Router>
       </>

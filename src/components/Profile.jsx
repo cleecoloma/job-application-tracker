@@ -12,7 +12,7 @@ class Profile extends React.Component {
     return (
       isAuthenticated && (
       <div className="centered-container">
-        <Card style={{ width: '18rem' }}>
+        <Card id='profile-card' style={{ width: '18rem' }}>
           <Card.Img variant="top" src={user.picture} />
           <Card.Body>
             <Card.Title>{user.nickname}</Card.Title>
