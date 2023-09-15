@@ -3,13 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import NavItem from 'react-bootstrap/NavItem';
-import NavLink from 'react-bootstrap/NavLink';
 import '../styles/Header.css';
 import Login from '../../auth/Login';
 import Logout from '../../auth/Logout';
 import { withAuth0 } from '@auth0/auth0-react';
-import { Button } from 'react-bootstrap';
 import { PersonCircle } from 'react-bootstrap-icons';
 
 class Header extends React.Component {
