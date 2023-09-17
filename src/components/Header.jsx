@@ -49,7 +49,13 @@ class Header extends React.Component {
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <div id="logout-button">
-                  <Logout />
+                  <Button
+                    className="button"
+                    variant="primary"
+                    onClick={() => this.props.handleDemoLogout()}
+                  >
+                    Logout
+                  </Button>
                 </div>
               </NavDropdown>
             ) : this.props.user ? null : (

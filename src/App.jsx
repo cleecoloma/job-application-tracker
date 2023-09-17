@@ -56,7 +56,14 @@ class App extends React.Component {
     this.setState({
       isDemoAccount: !this.state.isDemoAccount,
       user: this.state.demoUser
-    }, () => {console.log(this.state.user)})
+    })
+  }
+
+  handleDemoLogout = () => {
+    this.setState({
+      isDemoAccount: !this.state.isDemoAccount,
+      user: '',
+    });
   }
 
   render() {
@@ -68,6 +75,7 @@ class App extends React.Component {
             user={this.state.user}
             isDemoAccount={this.state.isDemoAccount}
             handleDemoAccount={this.handleDemoAccount}
+            handleDemoLogout={this.handleDemoLogout}
           />
           <Routes>
             {this.state.isDemoAccount ? (
@@ -133,7 +141,11 @@ class App extends React.Component {
               ></Route>
             )}
             <Route exact path="/Profile" element={<Profile />}></Route>
-            <Route exact path="/DemoAccount" element={<DemoAccount user={this.state.user} />}></Route>
+            <Route
+              exact
+              path="/DemoAccount"
+              element={<DemoAccount user={this.state.user} />}
+            ></Route>
             <Route exact path="/Contact" element={<Contact />}></Route>
           </Routes>
         </Router>
