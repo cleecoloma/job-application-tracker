@@ -9,6 +9,7 @@ import Login from '../../auth/Login';
 import Logout from '../../auth/Logout';
 import { withAuth0 } from '@auth0/auth0-react';
 import { PersonCircle } from 'react-bootstrap-icons';
+import Button from 'react-bootstrap/Button';
 
 class Header extends React.Component {
   constructor() {
@@ -29,6 +30,37 @@ class Header extends React.Component {
               style={{ maxHeight: '100px' }}
               navbarScroll
             ></Nav>
+            {this.props.isDemoAccount ? (
+              <NavDropdown
+                title={<PersonCircle size={30} />}
+                id="basic-nav-dropdown"
+                className="custom-dropdown"
+                align="end"
+              >
+                <NavDropdown.Item className="header-button">
+                  <Link className="nav-link custom-nav-link" to="/DemoAccount">
+                    Profile
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item className="header-button">
+                  <Link className="nav-link custom-nav-link" to="/Contact">
+                    Contact
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <div id="logout-button">
+                  <Logout />
+                </div>
+              </NavDropdown>
+            ) : this.props.user ? null : (
+              <Button
+                className="button"
+                variant="success"
+                onClick={() => this.props.handleDemoAccount()}
+              >
+                Demo
+              </Button>
+            )}
             {isAuthenticated ? (
               <NavDropdown
                 title={<PersonCircle size={30} />}
@@ -51,7 +83,7 @@ class Header extends React.Component {
                   <Logout />
                 </div>
               </NavDropdown>
-            ) : (
+            ) : this.props.isDemoAccount ? null : (
               <Login />
             )}
           </Container>
