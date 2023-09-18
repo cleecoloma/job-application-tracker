@@ -152,7 +152,7 @@ class FullModal extends React.Component {
                   variant="danger"
                   type="submit"
                   onClick={() =>
-                    this.props.handleDeleteJobs(this.props.jobs._id)
+                    this.props.handleDeleteJobs(this.props.jobs._id, this.props.jobs.user)
                   }
                 >
                   Delete

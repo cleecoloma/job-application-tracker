@@ -141,7 +141,7 @@ class Listings extends React.Component {
   };
 
   // DELETE
-  handleDeleteJobs = async (id) => {
+  handleDeleteJobs = async (id, email) => {
     const response = await this.sendRequest('DELETE', this.state.token, id);
     const updatedJobs = this.props.jobs.filter((job) => {
       job._id !== id;
@@ -150,7 +150,7 @@ class Listings extends React.Component {
       fullModalPreview: !this.state.fullModalPreview,
     });
     this.props.handleJobs(updatedJobs);
-    this.handleGetJobs();
+    this.handleGetJobs(email);
   };
 
   toggleAddModal = () => {
