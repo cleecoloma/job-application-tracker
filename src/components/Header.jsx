@@ -9,6 +9,7 @@ import Login from '../../auth/Login';
 import Logout from '../../auth/Logout';
 import { withAuth0 } from '@auth0/auth0-react';
 import { PersonCircle } from 'react-bootstrap-icons';
+import Button from 'react-bootstrap/Button';
 
 class Header extends React.Component {
   constructor() {
@@ -29,7 +30,38 @@ class Header extends React.Component {
               style={{ maxHeight: '100px' }}
               navbarScroll
             ></Nav>
-            {isAuthenticated ? (
+            {this.props.isDemoAccount && (
+              <NavDropdown
+                title={<PersonCircle size={30} />}
+                id="basic-nav-dropdown"
+                className="custom-dropdown"
+                align="end"
+              >
+                <NavDropdown.Item className="header-button">
+                  <Link className="nav-link custom-nav-link" to="/DemoAccount">
+                    Profile
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item className="header-button">
+                  <Link className="nav-link custom-nav-link" to="/Contact">
+                    Contact
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <Link className="nav-link custom-nav-link" to="/">
+                  <div id="logout-button">
+                    <Button
+                      className="button"
+                      variant="primary"
+                      onClick={() => this.props.handleDemoLogout()}
+                    >
+                      Logout
+                    </Button>
+                  </div>
+                </Link>
+              </NavDropdown>
+            )}
+            {isAuthenticated && (
               <NavDropdown
                 title={<PersonCircle size={30} />}
                 id="basic-nav-dropdown"
@@ -47,13 +79,21 @@ class Header extends React.Component {
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <div id="logout-button">
-                  <Logout />
-                </div>
+                <Logout />
               </NavDropdown>
-            ) : (
-              <Login />
             )}
+            {!isAuthenticated && !this.props.isDemoAccount ? (
+              <>
+                <Button
+                  className="button"
+                  variant="success"
+                  onClick={() => this.props.handleDemoAccount()}
+                >
+                  Demo
+                </Button>
+                <Login />
+              </>
+            ) : null}
           </Container>
         </Navbar>
       </>

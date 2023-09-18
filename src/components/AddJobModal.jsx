@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { withAuth0 } from '@auth0/auth0-react';
 
 class AddJobModal extends React.Component {
   constructor() {
@@ -13,7 +12,7 @@ class AddJobModal extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { user } = this.props.auth0;
+    const user = this.props.user;
     let { company, location, title, link, status, notes } = e.target;
     if (user && company && location && title) {
       this.props.handleCreateJobs({
@@ -30,9 +29,7 @@ class AddJobModal extends React.Component {
   };
 
   render() {
-    const { isAuthenticated } = this.props.auth0;
     return (
-      isAuthenticated && (
       <>
         <Modal
           show={this.props.modalPreview}
@@ -108,8 +105,7 @@ class AddJobModal extends React.Component {
           </Form>
         </Modal>
       </>)
-    );
   }
 }
 
-export default withAuth0(AddJobModal);
+export default AddJobModal;

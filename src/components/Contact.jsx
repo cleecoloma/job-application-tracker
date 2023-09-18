@@ -1,16 +1,12 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';
-import { withAuth0 } from '@auth0/auth0-react';
 import '../styles/Contact.css';
 import { Linkedin, Github } from 'react-bootstrap-icons';
 
 class Contact extends React.Component {
   render() {
-    const { isAuthenticated } = this.props.auth0;
     return (
-      isAuthenticated && (
         <Container className="centered-container">
           <h2>Contact The Developer</h2>
           <Card id="contact-card">
@@ -56,9 +52,9 @@ class Contact extends React.Component {
             </Card.Body>
           </Card>
         </Container>
-      )
+      // )
     );
   }
 }
 
-export default withAuth0(Contact);
+export default Contact;
