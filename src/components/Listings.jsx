@@ -123,7 +123,7 @@ class Listings extends React.Component {
   };
 
   // UPDATE
-  handleUpdateJobs = async (id, updatedJob) => {
+  handleUpdateJobs = async (id, updatedJob, email) => {
     const response = await this.sendRequest(
       'PUT',
       this.state.token,
@@ -137,7 +137,7 @@ class Listings extends React.Component {
       return job;
     });
     this.props.handleJobs(updatedJobs);
-    this.handleGetJobs();
+    this.handleGetJobs(email);
   };
 
   // DELETE

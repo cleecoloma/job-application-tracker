@@ -43,7 +43,7 @@ class EditJobModal extends React.Component {
       link,
       status,
       notes,
-    });
+    }, user);
     this.props.toggleEditModal();
     this.props.toggleFullModal();
   };
