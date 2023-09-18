@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+const DEMO_TOKEN = import.meta.env.VITE_DEMO_TOKEN;
 
 class Listings extends React.Component {
   constructor() {
@@ -68,12 +69,27 @@ class Listings extends React.Component {
   };
 
   async componentDidMount() {
-    const response = await this.props.auth0.getIdTokenClaims();
-    const token = response.__raw;
-    this.setState({ token, user: response.email }, () => {
-      this.handleGetJobs();
-      this.props.handleProfilePage(response);
-    });
+    if (this.props.isDemoAccount) {
+      const token = DEMO_TOKEN;
+      const user = this.props.demoUser;
+      this.setState(
+        {
+          token,
+          user,
+        },
+        () => {
+          this.handleGetJobs(user.email);
+        }
+      );
+    } else {
+      const response = await this.props.auth0.getIdTokenClaims();
+      const token = response.__raw;
+      this.setState({ token, user: response.email }, () => {
+        this.handleGetJobs(response.email);
+        this.props.handleProfilePage(response);
+        console.log(this.props.auth0.user);
+      });
+    }
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
@@ -82,10 +98,16 @@ class Listings extends React.Component {
   }
 
   // READ
-  handleGetJobs = async () => {
-    const queryParams = { user: this.state.user };
-    const response = await this.sendRequest('GET', this.state.token, null, null, queryParams);
-    this.props.handleJobs(response.data)
+  handleGetJobs = async (email) => {
+    const queryParams = { user: email };
+    const response = await this.sendRequest(
+      'GET',
+      this.state.token,
+      null,
+      null,
+      queryParams
+    );
+    this.props.handleJobs(response.data);
   };
 
   // CREATE
@@ -143,12 +165,10 @@ class Listings extends React.Component {
   };
 
   toggleEditModal = (job) => {
-    this.setState(
-      {
-        editModalPreview: !this.state.editModalPreview,
-        editSpecificJob: job,
-      }
-    );
+    this.setState({
+      editModalPreview: !this.state.editModalPreview,
+      editSpecificJob: job,
+    });
   };
 
   render() {
@@ -165,6 +185,7 @@ class Listings extends React.Component {
           modalPreview={this.state.modalPreview}
           toggleAddModal={this.toggleAddModal}
           handleCreateJobs={this.handleCreateJobs}
+          user={this.state.user}
         />
         <EditJobModal
           editModalPreview={this.state.editModalPreview}

@@ -30,7 +30,7 @@ class Header extends React.Component {
               style={{ maxHeight: '100px' }}
               navbarScroll
             ></Nav>
-            {this.props.isDemoAccount ? (
+            {this.props.isDemoAccount && (
               <NavDropdown
                 title={<PersonCircle size={30} />}
                 id="basic-nav-dropdown"
@@ -48,26 +48,20 @@ class Header extends React.Component {
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <div id="logout-button">
-                  <Button
-                    className="button"
-                    variant="primary"
-                    onClick={() => this.props.handleDemoLogout()}
-                  >
-                    Logout
-                  </Button>
-                </div>
+                <Link className="nav-link custom-nav-link" to="/">
+                  <div id="logout-button">
+                    <Button
+                      className="button"
+                      variant="primary"
+                      onClick={() => this.props.handleDemoLogout()}
+                    >
+                      Logout
+                    </Button>
+                  </div>
+                </Link>
               </NavDropdown>
-            ) : this.props.user ? null : (
-              <Button
-                className="button"
-                variant="success"
-                onClick={() => this.props.handleDemoAccount()}
-              >
-                Demo
-              </Button>
             )}
-            {isAuthenticated ? (
+            {isAuthenticated && (
               <NavDropdown
                 title={<PersonCircle size={30} />}
                 id="basic-nav-dropdown"
@@ -85,13 +79,21 @@ class Header extends React.Component {
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <div id="logout-button">
-                  <Logout />
-                </div>
+                <Logout />
               </NavDropdown>
-            ) : this.props.isDemoAccount ? null : (
-              <Login />
             )}
+            {!isAuthenticated && !this.props.isDemoAccount ? (
+              <>
+                <Button
+                  className="button"
+                  variant="success"
+                  onClick={() => this.props.handleDemoAccount()}
+                >
+                  Demo
+                </Button>
+                <Login />
+              </>
+            ) : null}
           </Container>
         </Navbar>
       </>

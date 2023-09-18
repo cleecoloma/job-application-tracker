@@ -17,7 +17,6 @@ class App extends React.Component {
       jobs: [],
       filteredJobs: null,
       searchTerm: '',
-      isUserAccount: false,
       isDemoAccount: false,
       demoUser: {
         picture: 'https://place-hold.it/400x400&text=DEMO&bold&fontsize=20',
@@ -55,16 +54,16 @@ class App extends React.Component {
   handleDemoAccount = () => {
     this.setState({
       isDemoAccount: !this.state.isDemoAccount,
-      user: this.state.demoUser
-    })
-  }
+      user: this.state.demoUser,
+    });
+  };
 
   handleDemoLogout = () => {
     this.setState({
       isDemoAccount: !this.state.isDemoAccount,
       user: '',
     });
-  }
+  };
 
   render() {
     const { isAuthenticated } = this.props.auth0;
@@ -90,12 +89,16 @@ class App extends React.Component {
                         handleProfilePage={this.handleProfilePage}
                         jobs={this.state.filteredJobs}
                         handleJobs={this.handleJobs}
+                        demoUser={this.state.demoUser}
+                        isDemoAccount={this.state.isDemoAccount}
                       />
                     ) : (
                       <Listings
                         handleProfilePage={this.handleProfilePage}
                         jobs={this.state.jobs}
                         handleJobs={this.handleJobs}
+                        demoUser={this.state.demoUser}
+                        isDemoAccount={this.state.isDemoAccount}
                       />
                     )}
                   </>
