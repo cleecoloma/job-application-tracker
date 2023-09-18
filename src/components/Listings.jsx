@@ -87,7 +87,6 @@ class Listings extends React.Component {
       this.setState({ token, user: response.email }, () => {
         this.handleGetJobs(response.email);
         this.props.handleProfilePage(response);
-        console.log(this.props.auth0.user);
       });
     }
     window.addEventListener('resize', this.handleWindowSizeChange);

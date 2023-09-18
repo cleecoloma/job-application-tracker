@@ -79,7 +79,11 @@ class Header extends React.Component {
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <Logout />
+                <Link className="nav-link custom-nav-link" to="/">
+                  <div id="logout-button">
+                    <Logout />
+                  </div>
+                </Link>
               </NavDropdown>
             )}
             {!isAuthenticated && !this.props.isDemoAccount ? (
