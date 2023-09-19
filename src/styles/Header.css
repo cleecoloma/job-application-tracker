@@ -9,10 +9,6 @@
   border-radius: 6px;
 }
 
-.button {
-  letter-spacing: 2px;
-}
-
 .header {
   padding: 8px 5rem;
 }
@@ -22,6 +18,10 @@
   border-radius: 8px;
   margin: 0 auto;
   width: 80%;
+}
+
+#demo-button {
+  margin-right: 1rem;
 }
 
 .custom-dropdown {

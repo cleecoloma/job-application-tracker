@@ -6,23 +6,20 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 class AddJobModal extends React.Component {
-  constructor() {
-    super();
-  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     const user = this.props.user;
-    let { company, location, title, link, status, notes } = e.target;
-    if (user && company && location && title) {
+    const { company, location, title } = e.target;
+    if (user && company.value && location.value && title.value) {
       this.props.handleCreateJobs({
-        user: user.email,
+        user: user,
         company: company.value,
         location: location.value,
         title: title.value,
-        link: link.value ? link.value : "",
-        status: status.value,
-        notes: notes.value ? notes.value : "",
+        link: e.target.link.value || '',
+        status: e.target.status.value,
+        notes: e.target.notes.value || '',
       });
       this.props.toggleAddModal();
     }
@@ -43,7 +40,7 @@ class AddJobModal extends React.Component {
           </Modal.Header>
 
           <Form className="m-3" onSubmit={this.handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Group className="mb-3">
               <Form.Label>Company</Form.Label>
               <Form.Control
                 type="text"
@@ -52,7 +49,7 @@ class AddJobModal extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Group className="mb-3">
               <Form.Label>Location</Form.Label>
               <Form.Control
                 type="text"
@@ -61,7 +58,7 @@ class AddJobModal extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Group className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control
                 type="text"
@@ -70,7 +67,7 @@ class AddJobModal extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Group className="mb-3">
               <Form.Label>Posting Link</Form.Label>
               <Form.Control
                 type="text"
@@ -82,10 +79,7 @@ class AddJobModal extends React.Component {
             <Row className="mb-3">
               <Form.Group as={Col}>
                 <Form.Label>Status</Form.Label>
-                <Form.Select 
-                defaultValue={"Interested"}
-                name="status"
-                >
+                <Form.Select defaultValue={'Interested'} name="status">
                   <option>Interested</option>
                   <option>Applied</option>
                   <option>Interview</option>
@@ -104,7 +98,8 @@ class AddJobModal extends React.Component {
             </Button>
           </Form>
         </Modal>
-      </>)
+      </>
+    );
   }
 }
 

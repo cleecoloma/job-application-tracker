@@ -51,7 +51,6 @@ class Header extends React.Component {
                 <Link className="nav-link custom-nav-link" to="/">
                   <div id="logout-button">
                     <Button
-                      className="button"
                       variant="primary"
                       onClick={() => this.props.handleDemoLogout()}
                     >
@@ -89,7 +88,7 @@ class Header extends React.Component {
             {!isAuthenticated && !this.props.isDemoAccount ? (
               <>
                 <Button
-                  className="button"
+                  id="demo-button"
                   variant="success"
                   onClick={() => this.props.handleDemoAccount()}
                 >
