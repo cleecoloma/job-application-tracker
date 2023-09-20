@@ -27,26 +27,29 @@ $ npm --version
 
 ### Install
 
-git clone https://github.com/cleecoloma/job-application-tracker
-cd job-application-tracker
-npm install
+1. git clone https://github.com/cleecoloma/job-application-tracker
+2. cd job-application-tracker
+3. npm install
 
 ### Configure app
 
-Any environment configuration steps.
+```text
+VITE_SERVER_URL={http://localhost:3001 or backend/api URL}
+VITE_AUTH_DOMAIN={Auth0 Domain}
+VITE_AUTH_CLIENT_ID={Auth0 Client ID}
+VITE_DEMO_TOKEN={Hard Coded Auth0 Token}
+```
 
-### Start & watch
+### Start app
 
 npm run dev
-npm start
-
-### Simple build for production
-
-npm run build
 
 ## Architecture
 
 ### Languages & tools
+
+> Languages - JavaScript, CSS3, HTML5
+> Tools - React, Node, Auth0, RESTful API, Bootstrap, Git, GitHub, Netlify, Microsoft Visual Studio, Markdown
 
 ## Change Log
 
