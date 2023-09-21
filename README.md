@@ -27,7 +27,7 @@ $ npm --version
 
 ### Install
 
-1. git clone https://github.com/cleecoloma/job-application-tracker
+1. git clone https://github.com/cleecoloma/job-application-tracker.git
 2. cd job-application-tracker
 3. npm install
 
