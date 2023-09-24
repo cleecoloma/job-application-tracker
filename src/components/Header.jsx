@@ -89,12 +89,11 @@ class Header extends React.Component {
               <>
                 <Button
                   id="demo-button"
-                  variant="success"
-                  onClick={() => this.props.handleDemoAccount()}
+                  variant="primary"
+                  onClick={() => this.props.toggleLoginModal()}
                 >
-                  Demo
+                  Login
                 </Button>
-                <Login />
               </>
             ) : null}
           </Container>

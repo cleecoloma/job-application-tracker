@@ -8,7 +8,7 @@ import DemoAccount from './components/DemoAccount';
 import Contact from './components/Contact';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginCard from './components/LoginModal';
+import LoginModal from './components/LoginModal';
 
 class App extends React.Component {
   constructor() {
@@ -83,9 +83,10 @@ class App extends React.Component {
             isDemoAccount={this.state.isDemoAccount}
             handleDemoAccount={this.handleDemoAccount}
             handleDemoLogout={this.handleDemoLogout}
+            toggleLoginModal={this.toggleLoginModal}
           />
-          <LoginCard
-            loginModalPreview={this.props.loginModalPreview}
+          <LoginModal
+            loginModalPreview={this.state.loginModalPreview}
             toggleLoginModal={this.toggleLoginModal}
           />
           <Routes>
