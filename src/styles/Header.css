@@ -45,4 +45,7 @@
   .header {
     padding: 8px 1rem;
   }
+  #brand-name {
+    font-size: 95%;
+  }
 }

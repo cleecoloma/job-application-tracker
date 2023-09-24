@@ -32,7 +32,7 @@ class Search extends React.Component {
           <Form className="d-flex mx-auto">
             <Form.Control
               type="search"
-              placeholder="Search for company, title, or location"
+              placeholder="Search by company, title, or location."
               className="search"
               aria-label="Search"
               value={this.state.searchValue}

@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginModal from './components/LoginModal';
+import './styles/App.css';
 
 class App extends React.Component {
   constructor() {
@@ -53,9 +54,9 @@ class App extends React.Component {
 
   toggleLoginModal = () => {
     this.setState({
-      loginModalPreview: !this.state.loginModalPreview
-    })
-  }
+      loginModalPreview: !this.state.loginModalPreview,
+    });
+  };
 
   handleDemoAccount = () => {
     this.setState({
@@ -139,16 +140,7 @@ class App extends React.Component {
                       )}
                     </>
                   ) : (
-                    <h4
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginTop: '6rem',
-                        flexWrap: 'wrap',
-                        padding: '0 2rem,',
-                        textAlign: 'center',
-                      }}
-                    >
+                    <h4 id="login-text">
                       Click 'Login' to access your options.
                     </h4>
                   )
