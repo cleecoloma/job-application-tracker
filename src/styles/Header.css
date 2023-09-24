@@ -20,10 +20,6 @@
   width: 80%;
 }
 
-#demo-button {
-  margin-right: 1rem;
-}
-
 .custom-dropdown {
   padding: 0;
   margin: 0;
@@ -48,5 +44,8 @@
 @media (max-width: 400px) {
   .header {
     padding: 8px 1rem;
+  }
+  #brand-name {
+    font-size: 95%;
   }
 }

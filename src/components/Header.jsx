@@ -5,7 +5,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
-import Login from '../../auth/Login';
 import Logout from '../../auth/Logout';
 import { withAuth0 } from '@auth0/auth0-react';
 import { PersonCircle } from 'react-bootstrap-icons';
@@ -89,12 +88,11 @@ class Header extends React.Component {
               <>
                 <Button
                   id="demo-button"
-                  variant="success"
-                  onClick={() => this.props.handleDemoAccount()}
+                  variant="primary"
+                  onClick={() => this.props.toggleLoginModal()}
                 >
-                  Demo
+                  Login
                 </Button>
-                <Login />
               </>
             ) : null}
           </Container>

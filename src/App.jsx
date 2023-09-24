@@ -8,6 +8,8 @@ import DemoAccount from './components/DemoAccount';
 import Contact from './components/Contact';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginModal from './components/LoginModal';
+import './styles/App.css';
 
 class App extends React.Component {
   constructor() {
@@ -17,6 +19,7 @@ class App extends React.Component {
       jobs: [],
       filteredJobs: null,
       searchTerm: '',
+      loginModalPreview: false,
       isDemoAccount: false,
       demoUser: {
         picture: 'https://place-hold.it/400x400&text=DEMO&bold&fontsize=20',
@@ -41,13 +44,17 @@ class App extends React.Component {
       filteredJobs,
       searchTerm,
     });
-    console.log('filteredJobs', this.state.filteredJobs);
-    console.log('jobs', this.state.jobs);
   };
 
   handleJobs = (input) => {
     this.setState({
       jobs: input,
+    });
+  };
+
+  toggleLoginModal = () => {
+    this.setState({
+      loginModalPreview: !this.state.loginModalPreview,
     });
   };
 
@@ -75,6 +82,12 @@ class App extends React.Component {
             isDemoAccount={this.state.isDemoAccount}
             handleDemoAccount={this.handleDemoAccount}
             handleDemoLogout={this.handleDemoLogout}
+            toggleLoginModal={this.toggleLoginModal}
+          />
+          <LoginModal
+            handleDemoAccount={this.handleDemoAccount}
+            loginModalPreview={this.state.loginModalPreview}
+            toggleLoginModal={this.toggleLoginModal}
           />
           <Routes>
             {this.state.isDemoAccount ? (
@@ -127,18 +140,9 @@ class App extends React.Component {
                       )}
                     </>
                   ) : (
-                    <h2
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginTop: '10rem',
-                        flexWrap: 'wrap',
-                        padding: '0 2rem,',
-                        textAlign: 'center',
-                      }}
-                    >
-                      Please log in to view job listings!
-                    </h2>
+                    <h4 id="login-text">
+                      Click 'Login' to access your options.
+                    </h4>
                   )
                 }
               ></Route>
