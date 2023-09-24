@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import '../styles/LoginModal.css';
@@ -32,17 +31,8 @@ class LoginModal extends React.Component {
               </Button>
             </div>
             <hr />
-            {/* <div className="login-div"> */}
             <Login className="login-button" />
             <p>using Auth0</p>
-            {/* <Button
-                className="login-button"
-                variant="primary"
-                onClick={() => this.props.handleDemoLogout()}
-              >
-                Email (Auth0)
-              </Button> */}
-            {/* </div> */}
           </div>
         </Modal>
       </>
