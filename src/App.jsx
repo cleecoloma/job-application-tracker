@@ -43,8 +43,6 @@ class App extends React.Component {
       filteredJobs,
       searchTerm,
     });
-    console.log('filteredJobs', this.state.filteredJobs);
-    console.log('jobs', this.state.jobs);
   };
 
   handleJobs = (input) => {
@@ -86,6 +84,7 @@ class App extends React.Component {
             toggleLoginModal={this.toggleLoginModal}
           />
           <LoginModal
+            handleDemoAccount={this.handleDemoAccount}
             loginModalPreview={this.state.loginModalPreview}
             toggleLoginModal={this.toggleLoginModal}
           />
