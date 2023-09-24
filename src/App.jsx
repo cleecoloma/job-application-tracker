@@ -8,6 +8,7 @@ import DemoAccount from './components/DemoAccount';
 import Contact from './components/Contact';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginCard from './components/LoginCard';
 
 class App extends React.Component {
   constructor() {
@@ -127,18 +128,19 @@ class App extends React.Component {
                       )}
                     </>
                   ) : (
-                    <h2
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginTop: '10rem',
-                        flexWrap: 'wrap',
-                        padding: '0 2rem,',
-                        textAlign: 'center',
-                      }}
-                    >
-                      Please log in to view job listings!
-                    </h2>
+                    // <h2
+                    //   style={{
+                    //     display: 'flex',
+                    //     justifyContent: 'center',
+                    //     marginTop: '10rem',
+                    //     flexWrap: 'wrap',
+                    //     padding: '0 2rem,',
+                    //     textAlign: 'center',
+                    //   }}
+                    // >
+                    //   Please log in to view job listings!
+                    // </h2>
+                    <LoginCard />
                   )
                 }
               ></Route>
