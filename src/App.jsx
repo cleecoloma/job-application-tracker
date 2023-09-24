@@ -8,7 +8,7 @@ import DemoAccount from './components/DemoAccount';
 import Contact from './components/Contact';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginCard from './components/LoginCard';
+import LoginCard from './components/LoginModal';
 
 class App extends React.Component {
   constructor() {
@@ -18,6 +18,7 @@ class App extends React.Component {
       jobs: [],
       filteredJobs: null,
       searchTerm: '',
+      loginModalPreview: false,
       isDemoAccount: false,
       demoUser: {
         picture: 'https://place-hold.it/400x400&text=DEMO&bold&fontsize=20',
@@ -52,6 +53,12 @@ class App extends React.Component {
     });
   };
 
+  toggleLoginModal = () => {
+    this.setState({
+      loginModalPreview: !this.state.loginModalPreview
+    })
+  }
+
   handleDemoAccount = () => {
     this.setState({
       isDemoAccount: !this.state.isDemoAccount,
@@ -76,6 +83,10 @@ class App extends React.Component {
             isDemoAccount={this.state.isDemoAccount}
             handleDemoAccount={this.handleDemoAccount}
             handleDemoLogout={this.handleDemoLogout}
+          />
+          <LoginCard
+            loginModalPreview={this.props.loginModalPreview}
+            toggleLoginModal={this.toggleLoginModal}
           />
           <Routes>
             {this.state.isDemoAccount ? (
@@ -128,19 +139,18 @@ class App extends React.Component {
                       )}
                     </>
                   ) : (
-                    // <h2
-                    //   style={{
-                    //     display: 'flex',
-                    //     justifyContent: 'center',
-                    //     marginTop: '10rem',
-                    //     flexWrap: 'wrap',
-                    //     padding: '0 2rem,',
-                    //     textAlign: 'center',
-                    //   }}
-                    // >
-                    //   Please log in to view job listings!
-                    // </h2>
-                    <LoginCard />
+                    <h4
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginTop: '6rem',
+                        flexWrap: 'wrap',
+                        padding: '0 2rem,',
+                        textAlign: 'center',
+                      }}
+                    >
+                      Click 'Login' to access your options.
+                    </h4>
                   )
                 }
               ></Route>
