@@ -7,10 +7,8 @@
   text-align: center;
 }
 
-
 @media (max-width: 400px) {
   #login-text {
-  font-size: 95%;
-}
-
+    font-size: 95%;
+  }
 }
