@@ -10,16 +10,16 @@ class AddJobModal extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const user = this.props.user.email;
-    const { company, location, title, link, status, notes } = e.target;
+    const { company, location, title } = e.target;
     if (user && company.value && location.value && title.value) {
       this.props.handleCreateJobs({
         user: user,
         company: company.value,
         location: location.value,
         title: title.value,
-        link: link.value || '',
-        status: status.value,
-        notes: notes.value || '',
+        link: e.target.link.value || '',
+        status: e.target.status.value,
+        notes: e.target.notes.value || '',
       });
       this.props.toggleAddModal();
     }
