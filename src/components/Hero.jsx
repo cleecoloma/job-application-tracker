@@ -23,7 +23,7 @@ class Hero extends Component {
           </div>
         </div>
         <div id='hero-right'>
-          <img id='hero-image' src='../images/pizza.png' alt='Pizza' />
+          <img id='hero-image' src='../images/hero.png' alt='Pizza' />
         </div>
       </div>
     );

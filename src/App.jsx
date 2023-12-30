@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import React from 'react';
+import Hero from './components/Hero';
 import Search from './components/Search';
 import Listings from './components/Listings';
 import Profile from './components/Profile';
@@ -140,9 +141,7 @@ class App extends React.Component {
                       )}
                     </>
                   ) : (
-                    <h4 id="login-text">
-                      Click 'Login' to access your options.
-                    </h4>
+                    <Hero />
                   )
                 }
               ></Route>
