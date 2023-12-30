@@ -76,7 +76,7 @@ class App extends React.Component {
   render() {
     const { isAuthenticated } = this.props.auth0;
     return (
-      <>
+      <div className='content'>
         <Router>
           <Header
             user={this.state.user}
@@ -155,7 +155,7 @@ class App extends React.Component {
             <Route exact path="/Contact" element={<Contact />}></Route>
           </Routes>
         </Router>
-      </>
+      </div>
     );
   }
 }
