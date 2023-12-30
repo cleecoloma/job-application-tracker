@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@400;700&display=swap');
 
+#header-navbar {
+  margin: 0 auto;
+  width: 1300px;
+  z-index: 9001;
+  height: 80px;
+  background-color: white;
+}
+
 #brand-name {
   color: rgb(22, 22, 22);
   font-family: 'Thasadith', sans-serif;
@@ -7,10 +15,6 @@
   padding: 6px 12px;
   font-weight: 700;
   border-radius: 6px;
-}
-
-.header {
-  padding: 8px 5rem;
 }
 
 .header-button {
