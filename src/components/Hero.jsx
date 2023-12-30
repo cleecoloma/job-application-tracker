@@ -9,16 +9,14 @@ class Hero extends Component {
     return (
       <div className='hero-container' id={id}>
         <div id='hero-left'>
-          <h2>
-            Infinite recipes,
-            <br /> one click away
-          </h2>
+          <h2>Take control of your job search journey today!</h2>
           <div id='hero-buttons'>
-            <Button href='#recipebook' id='see-recipes-button' size='lg'>
-              See some recipes
-            </Button>
-            <Button href='#howitworks' id='how-button' size='lg'>
-              How it works?
+            <Button
+              id='try-button'
+              size='lg'
+              onClick={() => this.props.toggleLoginModal()}
+            >
+              Get started with the demo!
             </Button>
           </div>
         </div>

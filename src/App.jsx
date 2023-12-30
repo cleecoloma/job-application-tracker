@@ -143,7 +143,7 @@ class App extends React.Component {
                     </>
                   ) : (
                     <>
-                      <Hero />
+                      <Hero toggleLoginModal={this.toggleLoginModal} />
                       <Footer />
                     </>
                   )

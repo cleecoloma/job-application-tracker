@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
-import Logout from '../../auth/Logout';
+import Logout from '../auth/Logout';
 import { withAuth0 } from '@auth0/auth0-react';
 import { PersonCircle } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';

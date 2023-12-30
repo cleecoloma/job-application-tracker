@@ -1,0 +1,15 @@
+#login-style-button {
+  background-color: #3081d0;
+}
+
+#login-style-button:hover {
+  background-color: #3559e0;
+}
+
+#logout-style-button {
+  background-color: #c3c5c1;
+}
+
+#logout-style-button:hover {
+  background-color: #878885;
+}
