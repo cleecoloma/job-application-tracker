@@ -54,7 +54,7 @@ class Header extends React.Component {
               <Link className='nav-link custom-nav-link' to='/'>
                 <div id='logout-button'>
                   <Button
-                    variant='primary'
+                    variant='danger'
                     onClick={() => this.props.handleDemoLogout()}
                   >
                     Logout
