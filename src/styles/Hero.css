@@ -1,0 +1,149 @@
+.hero-container {
+  display: flex;
+  width: 1300px;
+  margin-top: 80px;
+  min-height: calc(100vh - 100px);
+  background-color: #ccc7c7;
+}
+
+#hero-left {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#hero-left h2 {
+  font-family: 'Thasadith', sans-serif;
+  color: #0c5162;
+  font-weight: 700;
+  font-size: 320%;
+  text-align: center;
+  padding: 0 5rem;
+}
+
+#hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  padding: 1rem;
+}
+
+#hero-image {
+  width: 100%;
+  object-fit: fill;
+  border-radius: 1rem;
+}
+
+#hero-buttons {
+  margin-top: 2rem;
+}
+
+#try-button {
+  background-color: #3081d0;
+}
+
+#try-button:hover {
+  background-color: #3559e0;
+}
+
+@media only screen and (min-width: 1221px) and (max-width: 1440px) {
+  .hero-container {
+    max-width: 1200px;
+  }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1220px) {
+  .hero-container {
+    max-width: 950px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .hero-container {
+    max-width: 750px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+  }
+
+  #hero-right {
+    order: -1;
+  }
+
+  #hero-right,
+  #hero-left {
+    width: 80%;
+  }
+
+  #hero-left h2 {
+    font-size: 250%;
+    padding: 0;
+  }
+
+  #hero-image {
+    width: 750px;
+  }
+
+  #hero-buttons {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .hero-container {
+    max-width: 540px;
+  }
+
+  #hero-right,
+  #hero-left {
+    width: 80%;
+  }
+
+  #hero-left h2 {
+    font-size: 250%;
+    padding: 0;
+  }
+
+  #hero-image {
+    width: 750px;
+    border-radius: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .hero-container {
+    max-width: 400px;
+  }
+
+  #hero-right,
+  #hero-left {
+    width: 95%;
+  }
+
+  #hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #how-button {
+    margin: 1rem 0 0;
+  }
+
+  #how-button,
+  #see-recipes-button {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .hero-container {
+    max-width: 350px;
+  }
+}

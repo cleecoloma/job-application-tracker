@@ -1,11 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import React from 'react';
+import Hero from './components/Hero';
 import Search from './components/Search';
 import Listings from './components/Listings';
 import Profile from './components/Profile';
 import DemoAccount from './components/DemoAccount';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginModal from './components/LoginModal';
@@ -75,7 +77,7 @@ class App extends React.Component {
   render() {
     const { isAuthenticated } = this.props.auth0;
     return (
-      <>
+      <div className='content'>
         <Router>
           <Header
             user={this.state.user}
@@ -93,7 +95,7 @@ class App extends React.Component {
             {this.state.isDemoAccount ? (
               <Route
                 exact
-                path="/"
+                path='/'
                 element={
                   <>
                     <Search filterData={this.filterData} />
@@ -120,7 +122,7 @@ class App extends React.Component {
             ) : (
               <Route
                 exact
-                path="/"
+                path='/'
                 element={
                   isAuthenticated ? (
                     <>
@@ -140,23 +142,24 @@ class App extends React.Component {
                       )}
                     </>
                   ) : (
-                    <h4 id="login-text">
-                      Click 'Login' to access your options.
-                    </h4>
+                    <>
+                      <Hero toggleLoginModal={this.toggleLoginModal} />
+                      <Footer />
+                    </>
                   )
                 }
               ></Route>
             )}
-            <Route exact path="/Profile" element={<Profile />}></Route>
+            <Route exact path='/Profile' element={<Profile />}></Route>
             <Route
               exact
-              path="/DemoAccount"
+              path='/DemoAccount'
               element={<DemoAccount user={this.state.user} />}
             ></Route>
-            <Route exact path="/Contact" element={<Contact />}></Route>
+            <Route exact path='/Contact' element={<Contact />}></Route>
           </Routes>
         </Router>
-      </>
+      </div>
     );
   }
 }
