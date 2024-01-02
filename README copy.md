@@ -5,10 +5,10 @@
     <img src="/public/images/cookbot-logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">CookBot-AI</h3>
+<h3 align="center">Job Application Tracker</h3>
 <p align="center">
   <a href="https://app.netlify.com/sites/cleecoloma/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/67c37c2a-ffc6-4672-b1cb-708b7373433c/deploy-status" alt="Netlify Status" />
+    <img src="https://api.netlify.com/api/v1/badges/ab4012e0-cf8f-4ebd-97f3-c2326c153c99/deploy-status" alt="Netlify Status" />
   </a>
 </p>
 
@@ -20,13 +20,9 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-      <li><a href="#note">Note</a>
-      </li>
-      </ul>
     </li>
     <li>
-      <a href="#demo">Demo</a>
+      <a href="#preview">Preview</a>
     </li>
     <li>
       <a href="#features">Features</a>
@@ -57,24 +53,19 @@
 
 ## About The Project
 
-The CookBot AI Recipe Project is a web application designed to assist users in managing and exploring recipes. It leverages the power of artificial intelligence to simplify the process of creating, organizing, and discovering new recipes. Whether you're a cooking enthusiast, a culinary expert, or just looking for meal inspiration, CookBot AI offers a user-friendly platform to streamline your cooking experience.
+A mobile-responsive job application tracker web application using the MERN (MongoDB, Express, React, Node) stack, enabling users to seamlessly create, manage, and track job listings across four categories (Interested, Applied, Interview, Rejected).
 
-### Note
-
-This is a forked repository of my team project that was developed with 2 other teammates. I was a key contributor for this project. See below for old version of the application.
-
-- [Old CookBotAI Repo](https://github.com/CookBotAI/cook-bot-app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- DEMO -->
+<!-- PREVIEW -->
 
-## Demo
+## Preview
 
-Here's the live link: [CookBot AI](https://cookbot-ai-app.netlify.app/)
+Here's the live link: [Job Application Tracker](https://job-application-tracker-app.netlify.app/)
 
 <div align="center">
-    <img src="/public/images/how-to-shrimp.gif"  alt="Demo"/>
+    <img src="/public/images/hero.png"  alt="Preview"/>
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -84,8 +75,8 @@ Here's the live link: [CookBot AI](https://cookbot-ai-app.netlify.app/)
 ## Features
 
 - **User Authentication:** Securely register and log in using authentication services.
-- **Recipe Management:** Create, read, and delete your recipes with ease.
-- **AI-Generated Content:** Access AI-generated images and content for your recipes.
+- **Application Management:** Create, read, update, and delete your own job applications.
+- **Simplified Categories:** Navigate applications based on four categories - Interested, Applied, Interview, Rejected.
 - **Responsive Design:** Enjoy a seamless experience on various devices.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -98,8 +89,7 @@ Here's the live link: [CookBot AI](https://cookbot-ai-app.netlify.app/)
 - **Backend:** Node.js and Express.js for server-side logic.
 - **Database:** MongoDB for storing recipe data.
 - **Authentication:** Auth0 for user authentication.
-- **OpenAI Integration:** Chat Completions API for recipe generation and DALL·E‍ API for image generation.
-- **Additional Libraries and Frameworks:** React Bootstrap, MUI icons.
+- **Additional Libraries and Frameworks:** React Bootstrap.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,10 +109,10 @@ Before you begin, ensure you have the following installed:
 ### Cloning
 
 This is for the frontend portion of this application.
-See the following readme file for backend portion: [CookBot API](https://github.com/cleecoloma/cookbot-ai-api/blob/main/README.md)
+See the following readme file for backend portion: [Job Application Tracker API](https://github.com/cleecoloma/job-application-tracker-api/blob/main/README.md)
 
-1. git clone https://github.com/cleecoloma/cookbot-ai-app.git
-2. cd cookbot-ai-app
+1. git clone https://github.com/cleecoloma/job-application-tracker.git
+2. cd job-application-tracker
 3. npm install
 
 ### Configure
