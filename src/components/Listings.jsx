@@ -84,7 +84,6 @@ class Listings extends React.Component {
     } else {
       const response = await this.props.auth0.getIdTokenClaims();
       const token = response.__raw;
-      // console.log(response);
       this.setState({ token, user: response }, () => {
         this.handleGetJobs(response.email);
         this.props.handleProfilePage(response);

@@ -1,8 +1,6 @@
 .listings-container {
-  position: absolute;
-  top: 14rem;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 15rem auto 0;
+  width: 1300px;
 }
 
 .listings-header {
@@ -43,7 +41,8 @@ select {
   background-color: rgb(181, 180, 180);
 }
 
-.listings p, h1 {
+.listings p,
+h1 {
   color: rgb(35, 35, 35);
 }
 
@@ -52,4 +51,40 @@ select {
   height: 3px;
   background-color: black;
   border-radius: 3px;
+}
+
+@media only screen and (min-width: 1221px) and (max-width: 1440px) {
+  .listings-container {
+    max-width: 1200px;
+  }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1220px) {
+  .listings-container {
+    max-width: 950px;
+  }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1000px) {
+  .listings-container {
+    max-width: 750px;
+  }
+}
+
+@media only screen and (min-width: 551px) and (max-width: 800px) {
+  .listings-container {
+    max-width: 540px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .listings-container {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .listings-container {
+    max-width: 350px;
+  }
 }
