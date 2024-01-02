@@ -1,5 +1,5 @@
 #header-navbar {
-  /* margin: 0 auto; */
+  margin: 0 auto;
   width: 1300px;
   z-index: 9001;
   height: 80px;
@@ -37,17 +37,44 @@
   align-items: center;
 }
 
-@media (max-width: 1000px) {
-  .header {
-    padding: 8px 2rem;
+#basic-nav-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 1221px) and (max-width: 1440px) {
+  #header-navbar {
+    max-width: 1200px;
   }
 }
 
-@media (max-width: 400px) {
-  .header {
-    padding: 8px 1rem;
+@media only screen and (min-width: 1001px) and (max-width: 1220px) {
+  #header-navbar {
+    max-width: 950px;
   }
-  #brand-name {
-    font-size: 95%;
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1000px) {
+  #header-navbar {
+    max-width: 750px;
+  }
+}
+
+@media only screen and (min-width: 551px) and (max-width: 800px) {
+  #header-navbar {
+    max-width: 540px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #header-navbar {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #header-navbar {
+    max-width: 350px;
   }
 }

@@ -18,6 +18,10 @@ class Search extends React.Component {
     });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   render() {
     const searchStyle = {
       position: 'absolute',
@@ -25,21 +29,20 @@ class Search extends React.Component {
       left: '50%',
       transform: 'translateX(-50%)',
     };
+
     return (
-      <>
-        <div style={searchStyle}>
-          <Form className="d-flex mx-auto">
-            <Form.Control
-              type="search"
-              placeholder="Search by company, title, or location."
-              className="search"
-              aria-label="Search"
-              value={this.state.searchValue}
-              onChange={this.handleChange}
-            />
-          </Form>
-        </div>
-      </>
+      <div style={searchStyle}>
+        <Form className='d-flex mx-auto' onSubmit={this.handleSubmit}>
+          <Form.Control
+            type='search'
+            placeholder='Search by company, title, or location.'
+            className='search'
+            aria-label='Search'
+            value={this.state.searchTerm}
+            onChange={this.handleChange}
+          />
+        </Form>
+      </div>
     );
   }
 }
