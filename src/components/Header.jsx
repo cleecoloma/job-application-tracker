@@ -26,6 +26,7 @@ class Header extends React.Component {
       >
         <Container fluid>
           <Navbar.Brand href='/' id='brand-name'>
+            <img id='brand-logo' src='../images/job-application-logo.png' alt='logo' />
             Job Application Tracker
           </Navbar.Brand>
           <Nav

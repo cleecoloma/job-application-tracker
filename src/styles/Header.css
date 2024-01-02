@@ -7,12 +7,19 @@
 }
 
 #brand-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: rgb(22, 22, 22);
   font-family: 'Thasadith', sans-serif;
   border: thin solid rgb(22, 22, 22);
   padding: 6px 12px;
   font-weight: 700;
   border-radius: 6px;
+}
+
+#brand-logo {
+  height: 50px;
 }
 
 .header-button {
