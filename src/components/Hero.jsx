@@ -1,8 +1,38 @@
 import React, { Component } from 'react';
-import '../styles/Hero.css';
 import { Button } from 'react-bootstrap';
+import '../styles/Hero.css';
 
 class Hero extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      windowWidth: window.innerWidth,
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    this.setState({ windowWidth: window.innerWidth });
+  };
+
+  getImageSrc = () => {
+    const { windowWidth } = this.state;
+    if (windowWidth < 1000 && windowWidth > 551) {
+      return '../images/hero-tablet.png';
+    } else if (windowWidth < 550) {
+      return '../images/hero-mobile.png';
+    }
+    return '../images/hero.png';
+  };
+
   render() {
     const { id } = this.props;
 
@@ -21,7 +51,7 @@ class Hero extends Component {
           </div>
         </div>
         <div id='hero-right'>
-          <img id='hero-image' src='../images/hero.png' alt='Pizza' />
+          <img id='hero-image' src={this.getImageSrc()} alt='Hero' />
         </div>
       </div>
     );
