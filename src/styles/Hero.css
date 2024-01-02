@@ -59,6 +59,9 @@
   .hero-container {
     max-width: 950px;
   }
+  #hero-left h2 {
+    padding: 0 2rem;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -82,6 +85,7 @@
   #hero-left h2 {
     font-size: 250%;
     padding: 0;
+    margin-top: 2.5rem;
   }
 
   #hero-image {
@@ -130,14 +134,23 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    margin-top: 0.5rem;
   }
 
-  #how-button {
-    margin: 1rem 0 0;
+  #hero-left h2 {
+    font-size: 200%;
+    margin-top: 1rem;
   }
 
-  #how-button,
-  #see-recipes-button {
+  #hero-right {
+    padding: 1rem 0 0;
+  }
+
+  #try-button {
+    margin: 0;
+  }
+
+  #try-button {
     width: 90%;
   }
 }
