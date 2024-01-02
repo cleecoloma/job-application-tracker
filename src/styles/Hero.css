@@ -134,14 +134,23 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    margin-top: 0.5rem;
   }
 
-  #how-button {
-    margin: 1rem 0 0;
+  #hero-left h2 {
+    font-size: 200%;
+    margin-top: 1rem;
   }
 
-  #how-button,
-  #see-recipes-button {
+  #hero-right {
+    padding: 1rem 0 0;
+  }
+
+  #try-button {
+    margin: 0;
+  }
+
+  #try-button {
     width: 90%;
   }
 }
