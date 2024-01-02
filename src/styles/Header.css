@@ -1,5 +1,5 @@
 #header-navbar {
-  /* margin: 0 auto; */
+  margin: 0 auto;
   width: 1300px;
   z-index: 9001;
   height: 80px;
@@ -32,6 +32,12 @@
 }
 
 #logout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#basic-nav-dropdown {
   display: flex;
   justify-content: center;
   align-items: center;
