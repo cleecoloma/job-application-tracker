@@ -65,7 +65,7 @@ class Header extends React.Component {
           )}
           {isAuthenticated && (
             <NavDropdown
-              title="{<PersonCircle size={30} />}"
+              title={<PersonCircle size={30} />}
               id='basic-nav-dropdown'
               className='custom-dropdown'
               align='end'
