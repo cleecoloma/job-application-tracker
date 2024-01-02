@@ -22,7 +22,7 @@ select {
   position: absolute;
   width: 20rem;
   height: 3rem;
-  top: 9rem;
+  top: 10rem;
   left: 50%;
   transform: translateX(-50%);
 }
