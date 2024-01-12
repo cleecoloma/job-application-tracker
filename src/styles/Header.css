@@ -3,6 +3,7 @@
   width: 1300px;
   z-index: 9001;
   height: 80px;
+  background-color: white;
 }
 
 #brand-name {
@@ -48,6 +49,10 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+}
+
+.dropdown-menu {
+  text-align: center;
 }
 
 @media only screen and (min-width: 1221px) and (max-width: 1440px) {

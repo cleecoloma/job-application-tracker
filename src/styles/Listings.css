@@ -12,7 +12,7 @@
 
 /* HTML: <div class="loader"></div> */
 .loader {
-  margin: 0 auto;
+  margin: 10rem auto;
   height: 30px;
   aspect-ratio: 2.5;
   --_g: no-repeat radial-gradient(farthest-side,#507ba2 90%,#0000);
