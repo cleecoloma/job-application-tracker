@@ -21,8 +21,8 @@ class Header extends React.Component {
       <Navbar
         id='header-navbar'
         fixed='top'
-        expand='xl'
-        className='bg-body-tertiary justify-content-between'
+        expand='lg'
+        className='justify-content-between'
       >
         <Container fluid>
           <Navbar.Brand as={Link} href='/' id='brand-name'>
@@ -39,7 +39,6 @@ class Header extends React.Component {
               className='me-auto my-2 my-lg-0'
               style={{ maxHeight: '100px' }}
               navbarScroll
-              variant='underline'
             >
               <Nav.Link as={NavLink} to='/'>
                 Home
@@ -50,77 +49,72 @@ class Header extends React.Component {
                 </Nav.Link>
               ) : null}
             </Nav>
-            <div className='header-links'>
-              {this.props.isDemoAccount && (
-                <NavDropdown
-                  title={<PersonCircle size={30} />}
-                  id='basic-nav-dropdown'
-                  className='custom-dropdown'
-                  align='end'
-                >
-                  <NavDropdown.Item className='header-button'>
-                    <Link
-                      className='nav-link custom-nav-link'
-                      to='/DemoAccount'
+            {this.props.isDemoAccount && (
+              <NavDropdown
+                title={<PersonCircle size={30} />}
+                id='basic-nav-dropdown'
+                className='custom-dropdown'
+                align='end'
+              >
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/DemoAccount'>
+                    Profile
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/Contact'>
+                    Contact
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <Link className='nav-link custom-nav-link' to='/'>
+                  <div id='logout-button'>
+                    <Button
+                      variant='danger'
+                      onClick={() => this.props.handleDemoLogout()}
                     >
-                      Profile
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item className='header-button'>
-                    <Link className='nav-link custom-nav-link' to='/Contact'>
-                      Contact
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <Link className='nav-link custom-nav-link' to='/'>
-                    <div id='logout-button'>
-                      <Button
-                        variant='danger'
-                        onClick={() => this.props.handleDemoLogout()}
-                      >
-                        Logout
-                      </Button>
-                    </div>
+                      Logout
+                    </Button>
+                  </div>
+                </Link>
+              </NavDropdown>
+            )}
+            {isAuthenticated && (
+              <NavDropdown
+                title={<PersonCircle size={30} />}
+                id='basic-nav-dropdown'
+                className='custom-dropdown'
+                align='end'
+              >
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/Profile'>
+                    Profile
                   </Link>
-                </NavDropdown>
-              )}
-              {isAuthenticated && (
-                <NavDropdown
-                  title={<PersonCircle size={30} />}
-                  id='basic-nav-dropdown'
-                  className='custom-dropdown'
-                  align='end'
+                </NavDropdown.Item>
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/Contact'>
+                    Contact
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <Link className='nav-link custom-nav-link' to='/'>
+                  <div id='logout-button'>
+                    <Logout />
+                  </div>
+                </Link>
+              </NavDropdown>
+            )}
+            {!isAuthenticated && !this.props.isDemoAccount ? (
+              <>
+                <Button
+                  id='demo-button'
+                  variant='primary'
+                  onClick={() => this.props.toggleLoginModal()}
                 >
-                  <NavDropdown.Item className='header-button'>
-                    <Link className='nav-link custom-nav-link' to='/Profile'>
-                      Profile
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item className='header-button'>
-                    <Link className='nav-link custom-nav-link' to='/Contact'>
-                      Contact
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <Link className='nav-link custom-nav-link' to='/'>
-                    <div id='logout-button'>
-                      <Logout />
-                    </div>
-                  </Link>
-                </NavDropdown>
-              )}
-              {!isAuthenticated && !this.props.isDemoAccount ? (
-                <>
-                  <Button
-                    id='demo-button'
-                    variant='primary'
-                    onClick={() => this.props.toggleLoginModal()}
-                  >
-                    Login
-                  </Button>
-                </>
-              ) : null}
-            </div>
+                  Login
+                </Button>
+              </>
+            ) : null}
           </Navbar.Collapse>
         </Container>
       </Navbar>
