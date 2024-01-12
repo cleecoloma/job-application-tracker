@@ -12,10 +12,10 @@
 
 /* HTML: <div class="loader"></div> */
 .loader {
-  margin: 10rem auto;
-  height: 30px;
+  margin: 0 auto;
+  height: 40px;
   aspect-ratio: 2.5;
-  --_g: no-repeat radial-gradient(farthest-side,#507ba2 90%,#0000);
+  --_g: no-repeat radial-gradient(farthest-side,#43803c 90%,#0000);
   background:var(--_g), var(--_g), var(--_g), var(--_g);
   background-size: 20% 50%;
   animation: l43 1s infinite linear; 
