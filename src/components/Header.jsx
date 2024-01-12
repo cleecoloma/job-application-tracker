@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../styles/Header.css';
 import Logout from '../auth/Logout';
 import { withAuth0 } from '@auth0/auth0-react';
@@ -25,15 +25,29 @@ class Header extends React.Component {
         className='bg-body-tertiary header'
       >
         <Container fluid>
-          <Navbar.Brand href='/' id='brand-name'>
-            <img id='brand-logo' src='../images/job-application-logo.png' alt='logo' />
+          <Navbar.Brand as={Link} href='/' id='brand-name'>
+            <img
+              id='brand-logo'
+              src='../images/job-application-logo.png'
+              alt='logo'
+            />
             Job Application Tracker
           </Navbar.Brand>
           <Nav
             className='me-auto my-2 my-lg-0'
             style={{ maxHeight: '100px' }}
             navbarScroll
-          ></Nav>
+            variant='underline'
+          >
+            <Nav.Link as={NavLink} to='/'>
+              Home
+            </Nav.Link>{' '}
+            {this.props.isDemoAccount || isAuthenticated ? (
+              <Nav.Link as={NavLink} to='/my-jobs'>
+                My Jobs
+              </Nav.Link>
+            ) : null}
+          </Nav>
           {this.props.isDemoAccount && (
             <NavDropdown
               title={<PersonCircle size={30} />}
