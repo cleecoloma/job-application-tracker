@@ -92,10 +92,46 @@ class App extends React.Component {
             toggleLoginModal={this.toggleLoginModal}
           />
           <Routes>
+            {/* <Route
+              exact
+              path='/my-jobs'
+              element={
+                <>
+                  <Search filterData={this.filterData} />
+                  {this.state.filteredJobs ? (this.state.isDemoAccount ?
+                    <Listings
+                      handleProfilePage={this.handleProfilePage}
+                      jobs={this.state.filteredJobs}
+                      handleJobs={this.handleJobs}
+                      demoUser={this.state.demoUser}
+                      isDemoAccount={this.state.isDemoAccount}
+                    />
+                  ) : (
+                    <Listings
+                      handleProfilePage={this.handleProfilePage}
+                      jobs={this.state.jobs}
+                      handleJobs={this.handleJobs}
+                      demoUser={this.state.demoUser}
+                      isDemoAccount={this.state.isDemoAccount}
+                    />
+                  )}
+                </>
+              }
+            ></Route> */}
+            <Route
+              exact
+              path='/'
+              element={
+                <>
+                  <Hero toggleLoginModal={this.toggleLoginModal} />
+                  <Footer />
+                </>
+              }
+            ></Route>
             {this.state.isDemoAccount ? (
               <Route
                 exact
-                path='/'
+                path='/my-jobs'
                 element={
                   <>
                     <Search filterData={this.filterData} />
@@ -122,31 +158,24 @@ class App extends React.Component {
             ) : (
               <Route
                 exact
-                path='/'
+                path='/my-jobs'
                 element={
-                  isAuthenticated ? (
-                    <>
-                      <Search filterData={this.filterData} />
-                      {this.state.filteredJobs ? (
-                        <Listings
-                          handleProfilePage={this.handleProfilePage}
-                          jobs={this.state.filteredJobs}
-                          handleJobs={this.handleJobs}
-                        />
-                      ) : (
-                        <Listings
-                          handleProfilePage={this.handleProfilePage}
-                          jobs={this.state.jobs}
-                          handleJobs={this.handleJobs}
-                        />
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      <Hero toggleLoginModal={this.toggleLoginModal} />
-                      <Footer />
-                    </>
-                  )
+                  <>
+                    <Search filterData={this.filterData} />
+                    {this.state.filteredJobs ? (
+                      <Listings
+                        handleProfilePage={this.handleProfilePage}
+                        jobs={this.state.filteredJobs}
+                        handleJobs={this.handleJobs}
+                      />
+                    ) : (
+                      <Listings
+                        handleProfilePage={this.handleProfilePage}
+                        jobs={this.state.jobs}
+                        handleJobs={this.handleJobs}
+                      />
+                    )}
+                  </>
                 }
               ></Route>
             )}
