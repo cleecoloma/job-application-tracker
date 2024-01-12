@@ -219,7 +219,6 @@ class Listings extends React.Component {
           {this.state.isLoading ? (
             <div className='loader'></div>
           ) : (
-            <>
               this.state.showSelect ? (
               <div>
                 <select
@@ -306,7 +305,6 @@ class Listings extends React.Component {
                 </Row>
               </div>
               )
-            </>
           )}
         </Container>
       </>
