@@ -75,6 +75,7 @@
   .dropdown-menu {
     position: relative;
     margin: 0 5rem;
+    text-align: center;
   }
 }
 

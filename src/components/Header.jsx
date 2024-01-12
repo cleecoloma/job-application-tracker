@@ -25,7 +25,7 @@ class Header extends React.Component {
         className='justify-content-between'
       >
         <Container fluid>
-          <Navbar.Brand as={Link} href='/' id='brand-name'>
+          <Navbar.Brand as={Link} to='/' id='brand-name'>
             <img
               id='brand-logo'
               src='../images/job-application-logo.png'
@@ -40,11 +40,11 @@ class Header extends React.Component {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link as={NavLink} to='/'>
+              <Nav.Link as={Link} to='/'>
                 Home
               </Nav.Link>{' '}
               {this.props.isDemoAccount || isAuthenticated ? (
-                <Nav.Link as={NavLink} to='/my-jobs'>
+                <Nav.Link as={Link} to='/my-jobs'>
                   My Jobs
                 </Nav.Link>
               ) : null}
@@ -56,18 +56,26 @@ class Header extends React.Component {
                 className='custom-dropdown'
                 align='end'
               >
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/DemoAccount'>
-                    Profile
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/DemoAccount'
+                  className='nav-link custom-nav-link'
+                >
+                  Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/Contact'>
-                    Contact
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/Contact'
+                  className='nav-link custom-nav-link'
+                >
+                  Contact
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <Link className='nav-link custom-nav-link' to='/'>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/'
+                  className='nav-link custom-nav-link'
+                >
                   <div id='logout-button'>
                     <Button
                       variant='danger'
@@ -76,7 +84,7 @@ class Header extends React.Component {
                       Logout
                     </Button>
                   </div>
-                </Link>
+                </NavDropdown.Item>
               </NavDropdown>
             )}
             {isAuthenticated && (
@@ -86,22 +94,30 @@ class Header extends React.Component {
                 className='custom-dropdown'
                 align='end'
               >
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/Profile'>
-                    Profile
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/Profile'
+                  className='nav-link custom-nav-link'
+                >
+                  Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/Contact'>
-                    Contact
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/Contact'
+                  className='nav-link custom-nav-link'
+                >
+                  Contact
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <Link className='nav-link custom-nav-link' to='/'>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/'
+                  className='nav-link custom-nav-link'
+                >
                   <div id='logout-button'>
                     <Logout />
                   </div>
-                </Link>
+                </NavDropdown.Item>
               </NavDropdown>
             )}
             {!isAuthenticated && !this.props.isDemoAccount ? (
