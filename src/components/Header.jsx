@@ -21,11 +21,11 @@ class Header extends React.Component {
       <Navbar
         id='header-navbar'
         fixed='top'
-        expand='xl'
-        className='bg-body-tertiary header'
+        expand='lg'
+        className='justify-content-between'
       >
         <Container fluid>
-          <Navbar.Brand as={Link} href='/' id='brand-name'>
+          <Navbar.Brand as={Link} to='/' id='brand-name'>
             <img
               id='brand-logo'
               src='../images/job-application-logo.png'
@@ -33,22 +33,22 @@ class Header extends React.Component {
             />
             Job Application Tracker
           </Navbar.Brand>
-          <Nav
-            className='me-auto my-2 my-lg-0'
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-            variant='underline'
-          >
-            <Nav.Link as={NavLink} to='/'>
-              Home
-            </Nav.Link>{' '}
-            {this.props.isDemoAccount || isAuthenticated ? (
-              <Nav.Link as={NavLink} to='/my-jobs'>
-                My Jobs
-              </Nav.Link>
-            ) : null}
-          </Nav>
-          <div className='header-links'>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav
+              className='me-auto my-2 my-lg-0'
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            >
+              <Nav.Link as={Link} to='/'>
+                Home
+              </Nav.Link>{' '}
+              {this.props.isDemoAccount || isAuthenticated ? (
+                <Nav.Link as={Link} to='/my-jobs'>
+                  My Jobs
+                </Nav.Link>
+              ) : null}
+            </Nav>
             {this.props.isDemoAccount && (
               <NavDropdown
                 title={<PersonCircle size={30} />}
@@ -56,18 +56,26 @@ class Header extends React.Component {
                 className='custom-dropdown'
                 align='end'
               >
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/DemoAccount'>
-                    Profile
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/DemoAccount'
+                  className='nav-link custom-nav-link'
+                >
+                  Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/Contact'>
-                    Contact
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/Contact'
+                  className='nav-link custom-nav-link'
+                >
+                  Contact
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <Link className='nav-link custom-nav-link' to='/'>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/'
+                  className='nav-link custom-nav-link'
+                >
                   <div id='logout-button'>
                     <Button
                       variant='danger'
@@ -76,7 +84,7 @@ class Header extends React.Component {
                       Logout
                     </Button>
                   </div>
-                </Link>
+                </NavDropdown.Item>
               </NavDropdown>
             )}
             {isAuthenticated && (
@@ -86,22 +94,30 @@ class Header extends React.Component {
                 className='custom-dropdown'
                 align='end'
               >
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/Profile'>
-                    Profile
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/Profile'
+                  className='nav-link custom-nav-link'
+                >
+                  Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item className='header-button'>
-                  <Link className='nav-link custom-nav-link' to='/Contact'>
-                    Contact
-                  </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/Contact'
+                  className='nav-link custom-nav-link'
+                >
+                  Contact
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <Link className='nav-link custom-nav-link' to='/'>
+                <NavDropdown.Item
+                  as={Link}
+                  to='/'
+                  className='nav-link custom-nav-link'
+                >
                   <div id='logout-button'>
                     <Logout />
                   </div>
-                </Link>
+                </NavDropdown.Item>
               </NavDropdown>
             )}
             {!isAuthenticated && !this.props.isDemoAccount ? (
@@ -115,7 +131,7 @@ class Header extends React.Component {
                 </Button>
               </>
             ) : null}
-          </div>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     );
