@@ -48,72 +48,74 @@ class Header extends React.Component {
               </Nav.Link>
             ) : null}
           </Nav>
-          {this.props.isDemoAccount && (
-            <NavDropdown
-              title={<PersonCircle size={30} />}
-              id='basic-nav-dropdown'
-              className='custom-dropdown'
-              align='end'
-            >
-              <NavDropdown.Item className='header-button'>
-                <Link className='nav-link custom-nav-link' to='/DemoAccount'>
-                  Profile
-                </Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item className='header-button'>
-                <Link className='nav-link custom-nav-link' to='/Contact'>
-                  Contact
-                </Link>
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <Link className='nav-link custom-nav-link' to='/'>
-                <div id='logout-button'>
-                  <Button
-                    variant='danger'
-                    onClick={() => this.props.handleDemoLogout()}
-                  >
-                    Logout
-                  </Button>
-                </div>
-              </Link>
-            </NavDropdown>
-          )}
-          {isAuthenticated && (
-            <NavDropdown
-              title={<PersonCircle size={30} />}
-              id='basic-nav-dropdown'
-              className='custom-dropdown'
-              align='end'
-            >
-              <NavDropdown.Item className='header-button'>
-                <Link className='nav-link custom-nav-link' to='/Profile'>
-                  Profile
-                </Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item className='header-button'>
-                <Link className='nav-link custom-nav-link' to='/Contact'>
-                  Contact
-                </Link>
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <Link className='nav-link custom-nav-link' to='/'>
-                <div id='logout-button'>
-                  <Logout />
-                </div>
-              </Link>
-            </NavDropdown>
-          )}
-          {!isAuthenticated && !this.props.isDemoAccount ? (
-            <>
-              <Button
-                id='demo-button'
-                variant='primary'
-                onClick={() => this.props.toggleLoginModal()}
+          <div className='header-links'>
+            {this.props.isDemoAccount && (
+              <NavDropdown
+                title={<PersonCircle size={30} />}
+                id='basic-nav-dropdown'
+                className='custom-dropdown'
+                align='end'
               >
-                Login
-              </Button>
-            </>
-          ) : null}
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/DemoAccount'>
+                    Profile
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/Contact'>
+                    Contact
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <Link className='nav-link custom-nav-link' to='/'>
+                  <div id='logout-button'>
+                    <Button
+                      variant='danger'
+                      onClick={() => this.props.handleDemoLogout()}
+                    >
+                      Logout
+                    </Button>
+                  </div>
+                </Link>
+              </NavDropdown>
+            )}
+            {isAuthenticated && (
+              <NavDropdown
+                title={<PersonCircle size={30} />}
+                id='basic-nav-dropdown'
+                className='custom-dropdown'
+                align='end'
+              >
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/Profile'>
+                    Profile
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item className='header-button'>
+                  <Link className='nav-link custom-nav-link' to='/Contact'>
+                    Contact
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <Link className='nav-link custom-nav-link' to='/'>
+                  <div id='logout-button'>
+                    <Logout />
+                  </div>
+                </Link>
+              </NavDropdown>
+            )}
+            {!isAuthenticated && !this.props.isDemoAccount ? (
+              <>
+                <Button
+                  id='demo-button'
+                  variant='primary'
+                  onClick={() => this.props.toggleLoginModal()}
+                >
+                  Login
+                </Button>
+              </>
+            ) : null}
+          </div>
         </Container>
       </Navbar>
     );
