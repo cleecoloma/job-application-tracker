@@ -34,6 +34,7 @@ class Listings extends React.Component {
       },
       showSelect: window.innerWidth <= 1000,
       inputType: 'option1',
+      isLoading: false,
     };
   }
 
@@ -70,6 +71,9 @@ class Listings extends React.Component {
 
   async componentDidMount() {
     if (this.props.isDemoAccount) {
+      this.setState({
+        isLoading: true,
+      });
       const token = DEMO_TOKEN;
       const user = this.props.demoUser;
       this.setState(
@@ -81,12 +85,21 @@ class Listings extends React.Component {
           this.handleGetJobs(user.email);
         }
       );
+      this.setState({
+        isLoading: false,
+      });
     } else {
+      this.setState({
+        isLoading: true,
+      });
       const response = await this.props.auth0.getIdTokenClaims();
       const token = response.__raw;
       this.setState({ token, user: response }, () => {
         this.handleGetJobs(response.email);
         this.props.handleProfilePage(response);
+      });
+      this.setState({
+        isLoading: false,
       });
     }
     window.addEventListener('resize', this.handleWindowSizeChange);
@@ -174,8 +187,8 @@ class Listings extends React.Component {
     return (
       <>
         <Button
-          className="addButton"
-          variant="success"
+          className='addButton'
+          variant='success'
           onClick={() => this.toggleAddModal()}
         >
           + Add Job
@@ -202,23 +215,23 @@ class Listings extends React.Component {
           handleUpdateJobs={this.handleUpdateJobs}
           backgroundColor={this.state.backgroundColor}
         />
-        <Container className="listings-container">
+        <Container className='listings-container'>
           {this.state.showSelect ? (
             <div>
               <select
-                className="listings-selector btn btn-outline-light"
+                className='listings-selector btn btn-outline-light'
                 value={this.state.inputType}
                 onChange={this.handleInputChange}
               >
-                <option value="option1">Interested</option>
-                <option value="option2">Applied</option>
-                <option value="option3">Interview</option>
-                <option value="option4">Rejected</option>
+                <option value='option1'>Interested</option>
+                <option value='option2'>Applied</option>
+                <option value='option3'>Interview</option>
+                <option value='option4'>Rejected</option>
               </select>
               {this.state.inputType === 'option1' ? (
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Interested"
+                  status='Interested'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.interested}
@@ -226,7 +239,7 @@ class Listings extends React.Component {
               ) : this.state.inputType === 'option2' ? (
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Applied"
+                  status='Applied'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.applied}
@@ -234,7 +247,7 @@ class Listings extends React.Component {
               ) : this.state.inputType === 'option3' ? (
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Interview"
+                  status='Interview'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.interview}
@@ -242,7 +255,7 @@ class Listings extends React.Component {
               ) : (
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Rejected"
+                  status='Rejected'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.rejected}
@@ -252,36 +265,36 @@ class Listings extends React.Component {
           ) : (
             <div>
               <Row>
-                <Col className="listings-header">Interested</Col>
-                <Col className="listings-header">Applied</Col>
-                <Col className="listings-header">Interview</Col>
-                <Col className="listings-header">Rejected</Col>
+                <Col className='listings-header'>Interested</Col>
+                <Col className='listings-header'>Applied</Col>
+                <Col className='listings-header'>Interview</Col>
+                <Col className='listings-header'>Rejected</Col>
               </Row>
               <Row>
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Interested"
+                  status='Interested'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.interested}
                 />
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Applied"
+                  status='Applied'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.applied}
                 />
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Interview"
+                  status='Interview'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.interview}
                 />
                 <JobColumn
                   jobs={this.props.jobs}
-                  status="Rejected"
+                  status='Rejected'
                   toggleFullModal={this.toggleFullModal}
                   fullModalPreview={this.state.fullModalPreview}
                   backgroundColor={this.state.backgroundColor.rejected}

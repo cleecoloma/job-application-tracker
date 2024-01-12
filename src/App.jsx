@@ -75,7 +75,6 @@ class App extends React.Component {
   };
 
   render() {
-    const { isAuthenticated } = this.props.auth0;
     return (
       <div className='content'>
         <Router>
@@ -92,32 +91,6 @@ class App extends React.Component {
             toggleLoginModal={this.toggleLoginModal}
           />
           <Routes>
-            {/* <Route
-              exact
-              path='/my-jobs'
-              element={
-                <>
-                  <Search filterData={this.filterData} />
-                  {this.state.filteredJobs ? (this.state.isDemoAccount ?
-                    <Listings
-                      handleProfilePage={this.handleProfilePage}
-                      jobs={this.state.filteredJobs}
-                      handleJobs={this.handleJobs}
-                      demoUser={this.state.demoUser}
-                      isDemoAccount={this.state.isDemoAccount}
-                    />
-                  ) : (
-                    <Listings
-                      handleProfilePage={this.handleProfilePage}
-                      jobs={this.state.jobs}
-                      handleJobs={this.handleJobs}
-                      demoUser={this.state.demoUser}
-                      isDemoAccount={this.state.isDemoAccount}
-                    />
-                  )}
-                </>
-              }
-            ></Route> */}
             <Route
               exact
               path='/'
