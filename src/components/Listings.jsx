@@ -216,91 +216,97 @@ class Listings extends React.Component {
           backgroundColor={this.state.backgroundColor}
         />
         <Container className='listings-container'>
-          {this.state.showSelect ? (
-            <div>
-              <select
-                className='listings-selector btn btn-outline-light'
-                value={this.state.inputType}
-                onChange={this.handleInputChange}
-              >
-                <option value='option1'>Interested</option>
-                <option value='option2'>Applied</option>
-                <option value='option3'>Interview</option>
-                <option value='option4'>Rejected</option>
-              </select>
-              {this.state.inputType === 'option1' ? (
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Interested'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.interested}
-                />
-              ) : this.state.inputType === 'option2' ? (
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Applied'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.applied}
-                />
-              ) : this.state.inputType === 'option3' ? (
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Interview'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.interview}
-                />
-              ) : (
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Rejected'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.rejected}
-                />
-              )}
-            </div>
+          {this.state.isLoading ? (
+            <div className='loader'></div>
           ) : (
-            <div>
-              <Row>
-                <Col className='listings-header'>Interested</Col>
-                <Col className='listings-header'>Applied</Col>
-                <Col className='listings-header'>Interview</Col>
-                <Col className='listings-header'>Rejected</Col>
-              </Row>
-              <Row>
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Interested'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.interested}
-                />
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Applied'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.applied}
-                />
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Interview'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.interview}
-                />
-                <JobColumn
-                  jobs={this.props.jobs}
-                  status='Rejected'
-                  toggleFullModal={this.toggleFullModal}
-                  fullModalPreview={this.state.fullModalPreview}
-                  backgroundColor={this.state.backgroundColor.rejected}
-                />
-              </Row>
-            </div>
+            <>
+              this.state.showSelect ? (
+              <div>
+                <select
+                  className='listings-selector btn btn-outline-light'
+                  value={this.state.inputType}
+                  onChange={this.handleInputChange}
+                >
+                  <option value='option1'>Interested</option>
+                  <option value='option2'>Applied</option>
+                  <option value='option3'>Interview</option>
+                  <option value='option4'>Rejected</option>
+                </select>
+                {this.state.inputType === 'option1' ? (
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Interested'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.interested}
+                  />
+                ) : this.state.inputType === 'option2' ? (
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Applied'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.applied}
+                  />
+                ) : this.state.inputType === 'option3' ? (
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Interview'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.interview}
+                  />
+                ) : (
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Rejected'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.rejected}
+                  />
+                )}
+              </div>
+              ) : (
+              <div>
+                <Row>
+                  <Col className='listings-header'>Interested</Col>
+                  <Col className='listings-header'>Applied</Col>
+                  <Col className='listings-header'>Interview</Col>
+                  <Col className='listings-header'>Rejected</Col>
+                </Row>
+                <Row>
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Interested'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.interested}
+                  />
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Applied'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.applied}
+                  />
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Interview'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.interview}
+                  />
+                  <JobColumn
+                    jobs={this.props.jobs}
+                    status='Rejected'
+                    toggleFullModal={this.toggleFullModal}
+                    fullModalPreview={this.state.fullModalPreview}
+                    backgroundColor={this.state.backgroundColor.rejected}
+                  />
+                </Row>
+              </div>
+              )
+            </>
           )}
         </Container>
       </>
