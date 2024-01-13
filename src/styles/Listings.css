@@ -10,7 +10,7 @@
   font-size: 150%;
 }
 
-/* HTML: <div class="loader"></div> */
+/* Styling for loading screen - CSS is from https://webdeasy.de/en/css-loading-animations/ - Author John Heiner */
 .loader {
   margin: 0 auto;
   height: 40px;
